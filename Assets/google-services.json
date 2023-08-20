@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "15181750616",
+    "project_id": "color-sort-8e355",
+    "storage_bucket": "color-sort-8e355.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:15181750616:android:316ce5346a1871d0e4452d",
+        "android_client_info": {
+          "package_name": "com.infinity.color.water.puzzle.sort.games"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "15181750616-lshbgg66blccqj37825g1mps2rfdv79t.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDOFEGB2o8bHS0SSxLEoqqlUc9eYHBtgfw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "15181750616-lshbgg66blccqj37825g1mps2rfdv79t.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
