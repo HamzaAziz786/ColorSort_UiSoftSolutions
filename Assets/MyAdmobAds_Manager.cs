@@ -37,6 +37,7 @@ public class MyAdmobAds_Manager : MonoBehaviour
         else
             Instance = this;
         DontDestroyOnLoad(this.gameObject);
+       // FirebaseAnaLytics.instance.StringEvent("Appopen");
         // Screen.sleepTimeout = SleepTimeout.NeverSleep;
         //if (Instance != null)
         //{

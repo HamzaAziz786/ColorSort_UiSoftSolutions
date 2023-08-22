@@ -62,6 +62,7 @@ public class LevelManager : MonoBehaviour
         Level = ResourceManager.GetLevel(loadGameData.GameMode, PlayerPrefs.GetInt("level"));
 
         LoadLevel();
+        FirebaseAnaLytics.instance.LevelsEvent("Level","Start" , PlayerPrefs.GetInt("level"));
         CurrentState = State.Playing;
 
 
@@ -69,7 +70,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         MyAdmobAds_Manager.Instance.ShowSmallAdmobBanner();
-
+        
 
 
 
