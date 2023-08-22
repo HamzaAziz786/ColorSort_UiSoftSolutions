@@ -45,6 +45,7 @@ namespace dotmob
                 Splash.instance.loadingpanel.SetActive(false);
                 SceneManager.LoadScene(sceneName);
             }
+            FirebaseAnaLytics.instance.StringEvent("MainMenu");
         }
 
 
