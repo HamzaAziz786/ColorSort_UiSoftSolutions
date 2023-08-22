@@ -71,7 +71,7 @@ namespace Game
             //}
             Debug.Log("call times");
             PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
-            FirebaseAnaLytics.instance.LevelsEvent("Level", "Start", PlayerPrefs.GetInt("level"));
+            FirebaseAnaLytics.instance.LevelsEvent("Level ", "Start ", PlayerPrefs.GetInt("level"));
             GameManager.LoadGame(new LoadGameData
             {
                 //Level = ResourceManager.GetLevel(gameMode, levelNo + 1),

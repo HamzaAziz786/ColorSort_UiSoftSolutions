@@ -42,7 +42,7 @@ public class FirebaseAnaLytics : MonoBehaviour
     }
     public void LevelsEvent(string Level , string LevelStatus ,  int LevelNumber)
     {
-        Debug.Log(Level + LevelStatus+ LevelNumber);
+        Debug.Log(Level +" " +LevelStatus+ " " + LevelNumber);
         FirebaseAnalytics.LogEvent(Level, LevelStatus,LevelNumber);
     }
     
