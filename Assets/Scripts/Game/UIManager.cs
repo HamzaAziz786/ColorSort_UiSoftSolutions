@@ -51,7 +51,7 @@ namespace Game
             var point = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f)).WithZ(0);
             Instantiate(_winEffect, point, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
-           
+            FirebaseAnaLytics.instance.LevelsEvent("Level ", "Complete ", PlayerPrefs.GetInt("level"));
             _levelCompletePanel.Show();
         }
 
