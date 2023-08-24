@@ -42,7 +42,7 @@ public class setting : MonoBehaviour
     }
     public void Rateus()
     {
-        Application.OpenURL("https://play.google.com/store/apps/details?id=com.fungames.color.sort.water.puzzle.game");
+        Application.OpenURL("https://play.google.com/store/apps/details?id=com.infinity.color.water.puzzle.sort.games");
     }
     public void Moregames()
     {
