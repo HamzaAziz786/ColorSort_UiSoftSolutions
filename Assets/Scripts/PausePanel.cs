@@ -45,7 +45,7 @@ public class PausePanel : ShowHidable
 public void OnClickRestore()
     {
         SharedUIManager.PausePanel.Hide();
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
     }
 
 

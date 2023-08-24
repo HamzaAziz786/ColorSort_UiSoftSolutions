@@ -131,7 +131,7 @@ public class LevelManager : MonoBehaviour
             }
             holder.Init(levelColumn);
             _holders.Add(holder);
-           // addtubenum++;
+            addtubenum++;
         }
 
     }
@@ -157,6 +157,8 @@ public class LevelManager : MonoBehaviour
                         storetube[i].gameObject.GetComponent<Animator>().enabled = true;
                         hintbool = true;
                         AddHint--;
+                       
+                        PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") -1);
                         hinttext.text = AddHint.ToString();
                         Debug.Log("its running anim true");
 
@@ -238,7 +240,8 @@ public class LevelManager : MonoBehaviour
 
 
             AddTube--;
-
+            PlayerPrefs.SetInt("Tube", PlayerPrefs.GetInt("Tube") -1);
+           
             addtubetext.text = AddTube.ToString();
 
         }
