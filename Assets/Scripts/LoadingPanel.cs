@@ -15,9 +15,9 @@ public class LoadingPanel : ShowHidable {
     {
         if (PlayerPrefs.GetInt("Splash") < 1)
         {
-            PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") + 2);
-            PlayerPrefs.SetInt("Tube", PlayerPrefs.GetInt("Tube") + 2);
-            PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") + 2);
+            PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") + 3);
+            PlayerPrefs.SetInt("Tube", PlayerPrefs.GetInt("Tube") + 4);
+            PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") + 4);
             PlayerPrefs.SetInt(("Splash"), 1);
         }
     }

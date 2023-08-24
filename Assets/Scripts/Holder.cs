@@ -155,7 +155,7 @@ public class Holder : MonoBehaviour
         _liquidLine.transform.position = sidePoint.position;
         _liquidLine.gameObject.SetActive(true);
         _liquidLine.transform.localScale =
-            _liquidLine.transform.localScale.WithY((sidePoint.transform.position.y-2f) - holder.transform.position.y);
+            _liquidLine.transform.localScale.WithY((sidePoint.transform.position.y-2.5f) - holder.transform.position.y);
         _liquidLine.color = thisLiquid.Renderer.color;
         _liquidLine.transform.rotation = Quaternion.identity;
         _audio.clip = _liquidTransferClip;
