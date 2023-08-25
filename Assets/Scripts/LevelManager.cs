@@ -131,7 +131,7 @@ public class LevelManager : MonoBehaviour
             }
             holder.Init(levelColumn);
             _holders.Add(holder);
-           // addtubenum++;
+            addtubenum++;
         }
 
     }
