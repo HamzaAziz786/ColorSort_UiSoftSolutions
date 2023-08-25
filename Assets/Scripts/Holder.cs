@@ -114,6 +114,8 @@ public class Holder : MonoBehaviour
         
         if(holder.IsFull || !_liquids.Any() || holder.Liquids.Any() && holder.Liquids.Last().GroupId != Liquids.Last().GroupId)
         {
+            LevelManager.Instance.confetti.gameObject.SetActive(true);
+            LevelManager.Instance.confetti.Play();
             yield break;
         }
 

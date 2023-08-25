@@ -47,6 +47,7 @@ public class LevelManager : MonoBehaviour
     public Sprite[] contetnsprites;
     public SpriteRenderer CurrentBackground;
     public Sprite[] BakcgroundsSprites;
+    public ParticleSystem confetti;
     private void Awake()
     {
         Instance = this;
