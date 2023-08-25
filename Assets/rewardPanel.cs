@@ -34,6 +34,13 @@ public class rewardPanel : MonoBehaviour
     public void OnClickReward()
     {
         CancelInvoke(nameof(Scroller));
+        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
+       
         Debug.Log(Reward[currentindex]);
     }
+    public void Continue()
+    {
+        InvokeRepeating(nameof(Scroller), .2f, .2f);
+    }
+
 }
