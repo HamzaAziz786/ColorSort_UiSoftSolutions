@@ -1280,7 +1280,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 164428652}
         m_TargetAssemblyTypeName: MainMenu.GameModePanel, Assembly-CSharp
         m_MethodName: OnClickButton
         m_Mode: 3
@@ -3771,13 +3771,14 @@ GameObject:
   - component: {fileID: 164428649}
   - component: {fileID: 164428651}
   - component: {fileID: 164428650}
+  - component: {fileID: 164428652}
   m_Layer: 5
   m_Name: PanelSelect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &164428649
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3837,6 +3838,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 164428648}
   m_CullTransparentMesh: 1
+--- !u!114 &164428652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 164428648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c481dd9e0264b36b2fc3d9361568cee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  dependObjects: []
 --- !u!1 &165816849
 GameObject:
   m_ObjectHideFlags: 0
@@ -23266,7 +23281,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 164428652}
         m_TargetAssemblyTypeName: MainMenu.GameModePanel, Assembly-CSharp
         m_MethodName: OnClickButton
         m_Mode: 3
@@ -40028,7 +40043,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 164428652}
         m_TargetAssemblyTypeName: MainMenu.GameModePanel, Assembly-CSharp
         m_MethodName: OnClickButton
         m_Mode: 3
