@@ -47,6 +47,7 @@ public class LevelManager : MonoBehaviour
     public Sprite[] contetnsprites;
     public SpriteRenderer CurrentBackground;
     public Sprite[] BakcgroundsSprites;
+    public GameObject RewardPanel;
     private void Awake()
     {
         Instance = this;
@@ -365,6 +366,7 @@ public class LevelManager : MonoBehaviour
         CurrentState = State.Over;
 
         ResourceManager.CompleteLevel(GameMode, Level.no);
+        RewardPanel.SetActive(true);
         LevelCompleted?.Invoke();
     }
 

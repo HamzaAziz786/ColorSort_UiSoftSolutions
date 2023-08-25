@@ -4,6 +4,7 @@ using UnityEngine;
 using DG.Tweening;
 //using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine.UI;
+using dotmob;
 
 public class StoreScript : MonoBehaviour
 {
@@ -87,5 +88,7 @@ public class StoreScript : MonoBehaviour
             WallPaperImages[i].sprite = unselectedsprite;
         }
         WallPaperImages[currentspriteselect].sprite = selectedsprite;
+       
     }
+   
 }

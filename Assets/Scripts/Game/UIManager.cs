@@ -11,6 +11,7 @@ namespace Game
         public static UIManager Instance { get; private set; }
 
         [SerializeField] private LevelCompletePanel _levelCompletePanel;
+        
         //[SerializeField] private TutorialPanel _tutorialPanel;
         [SerializeField] private GameObject _winEffect;
 

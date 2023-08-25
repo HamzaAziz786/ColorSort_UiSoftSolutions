@@ -220,7 +220,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &111133075
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3360,6 +3360,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 660813531aff4a04783ab75b3ee7d06e, type: 3}
   - {fileID: 21300000, guid: 9e97d0ae38373b347b8876d57db4289c, type: 3}
   - {fileID: 21300000, guid: 671c8ac173bc2ed44acadb2493480302, type: 3}
+  RewardPanel: {fileID: 111133074}
 --- !u!1 &1329066859
 GameObject:
   m_ObjectHideFlags: 0
