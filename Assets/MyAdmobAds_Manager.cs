@@ -312,7 +312,7 @@ public class MyAdmobAds_Manager : MonoBehaviour
         // Load the rewarded ad with the request.
         this.rewardedAd.LoadAd(request);
     }
-    public void ShowRewardBasedVideo(ClaimEvent claim)
+    public void ShowRewardBasedVideo()
     {
         if (IsInternetConnection())
         {
@@ -374,13 +374,14 @@ public class MyAdmobAds_Manager : MonoBehaviour
     public void HandleRewardedAdClosed(object sender, EventArgs args)
     {
         RequestRewardedVideo();
+        LevelManager.Instance.Reward();
         MonoBehaviour.print("HandleRewardedAdClosed event received");
     }
     public void HandleUserEarnedReward(object sender, Reward args)
     {
         // GiveReward();
-        if (RewrdedClam && ClaimReward != null)
-            ClaimReward();
+        //if (RewrdedClam && ClaimReward != null)
+        //    ClaimReward();
 
         MonoBehaviour.print(
             "HandleRewardedAdRewarded event received for ");

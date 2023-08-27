@@ -261,13 +261,18 @@ public class LevelManager : MonoBehaviour
 
     public void SkipLevel()
     {
-        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo(Reward);
-       // MyAdmobAds_Manager.ClaimReward += Reward;
-        
+        if (PlayerPrefs.GetInt("Undo") < 1 )
+            return;
+        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
+
+        // MyAdmobAds_Manager.ClaimReward += Reward;
+        //Reward()
     }
+
     public void Reward()
     {
         PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
+        PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") - 1);
         SceneManager.LoadScene(2);
     }
     public void OnClickUndo()
