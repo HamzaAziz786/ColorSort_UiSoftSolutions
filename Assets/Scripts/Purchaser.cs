@@ -57,6 +57,7 @@ public class Purchaser : MonoBehaviour, IStoreListener
             InitializePurchasing();
         }
         PlayerPrefs.SetInt("b" + 0, 1);
+        PlayerPrefs.SetInt("w" + 0, 1);
     }
 
     [Obsolete]

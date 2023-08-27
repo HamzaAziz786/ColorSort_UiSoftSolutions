@@ -25,6 +25,7 @@ public class StoreScript : MonoBehaviour
     public int[] LockBottlesPrice;
     public int[] LockBackgorundPrice;
     int currentindexbottle; 
+    int currentindexbg; 
 
     public void Start()
     {
@@ -39,6 +40,13 @@ public class StoreScript : MonoBehaviour
                 LockBottles[i].gameObject.SetActive(true);
             else
                 LockBottles[i].gameObject.SetActive(false);
+        }
+        for (int i = 0; i < LockBg.Length; i++)
+        {
+            if(PlayerPrefs.GetInt("w" + i) == 0)
+                LockBg[i].gameObject.SetActive(true);
+            else
+                LockBg[i].gameObject.SetActive(false);
         }
     }
     public void Storepnl()
@@ -112,17 +120,36 @@ public class StoreScript : MonoBehaviour
 
     public void SelectWallPaperSprite(int selectbottle)
     {
-        selectwallPapernumber = selectbottle;
+        selectwallPapernumber = selectbottle; 
+
 
     }
     public void SelectedPapers(int currentspriteselect)
     {
-        for (int i = 0; i < WallPaperImages.Length; i++)
+        if (PlayerPrefs.GetInt("b" + currentspriteselect) == 0)
         {
-
-            WallPaperImages[i].sprite = unselectedsprite;
+            if (PlayerPrefs.GetInt("Coins") >= LockBackgorundPrice[currentspriteselect])
+            {
+                LockBg[currentspriteselect].gameObject.SetActive(false);
+                PlayerPrefs.SetInt("w" + currentspriteselect, 1);
+                PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - LockBackgorundPrice[currentspriteselect]);
+            }
         }
-        WallPaperImages[currentspriteselect].sprite = selectedsprite;
+
+
+        else
+        {
+            selectwallPapernumber = currentindexbg;
+
+
+            for (int i = 0; i < WallPaperImages.Length; i++)
+            {
+
+                WallPaperImages[i].sprite = unselectedsprite;
+            }
+            WallPaperImages[currentspriteselect].sprite = selectedsprite;
+        }
+       
     }
 
     
