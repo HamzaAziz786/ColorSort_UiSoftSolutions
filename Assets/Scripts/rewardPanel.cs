@@ -14,10 +14,14 @@ public class rewardPanel : MonoBehaviour
     int currentindex=0;
     public GameObject Roller;
     public TMP_Text rewardamount;
-    private void Start()
+    private void OnEnable()
     {
         InvokeRepeating(nameof(Scroller), .2f, .2f);
     }
+    //private void Start()
+    //{
+    //    InvokeRepeating(nameof(Scroller), .2f, .2f);
+    //}
 
     public void Scroller()
     {

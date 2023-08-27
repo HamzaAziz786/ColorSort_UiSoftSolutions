@@ -48,6 +48,7 @@ public class LevelManager : MonoBehaviour
     public SpriteRenderer CurrentBackground;
     public Sprite[] BakcgroundsSprites;
     public ParticleSystem confetti;
+    public GameObject RewardPanel;
     private void Awake()
     {
         Instance = this;
@@ -158,6 +159,8 @@ public class LevelManager : MonoBehaviour
                         storetube[i].gameObject.GetComponent<Animator>().enabled = true;
                         hintbool = true;
                         AddHint--;
+                       
+                        PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") -1);
                         hinttext.text = AddHint.ToString();
                         Debug.Log("its running anim true");
 
@@ -239,7 +242,9 @@ public class LevelManager : MonoBehaviour
 
 
             AddTube--;
-
+           
+            PlayerPrefs.SetInt("Tube", PlayerPrefs.GetInt("Tube")  - 1);
+           
             addtubetext.text = AddTube.ToString();
 
         }
@@ -258,7 +263,8 @@ public class LevelManager : MonoBehaviour
         Debug.Log("UNDO :" + _undoStack.Count);
         if (CurrentState != State.Playing || _undoStack.Count <= 0 || HaveUndo)
             return;
-
+        PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo")  - 1 );
+      
         var moveData = _undoStack.Pop();
     }
 
@@ -361,7 +367,7 @@ public class LevelManager : MonoBehaviour
 
         PlayClipIfCan(_winClip);
         CurrentState = State.Over;
-
+        RewardPanel.SetActive(true);
         ResourceManager.CompleteLevel(GameMode, Level.no);
         LevelCompleted?.Invoke();
     }
