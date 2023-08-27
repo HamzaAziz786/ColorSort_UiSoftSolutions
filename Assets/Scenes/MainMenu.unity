@@ -60502,11 +60502,11 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 2
+        m_CallState: 0
       - m_Target: {fileID: 1853988032}
         m_TargetAssemblyTypeName: MainMenu.GameModePanel, Assembly-CSharp
         m_MethodName: OnClickButton
-        m_Mode: 3
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -60514,7 +60514,7 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 1
-        m_CallState: 0
+        m_CallState: 2
 --- !u!114 &7748482079126334777
 MonoBehaviour:
   m_ObjectHideFlags: 0
