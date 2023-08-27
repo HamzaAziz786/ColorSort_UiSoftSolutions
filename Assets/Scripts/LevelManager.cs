@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
         Level = ResourceManager.GetLevel(loadGameData.GameMode, PlayerPrefs.GetInt("level"));
 
         LoadLevel();
-        FirebaseAnaLytics.instance.LevelsEvent("Level_","Start_" , PlayerPrefs.GetInt("level"));
+        FirebaseAnaLytics.instance.LevelsEvent("Level_", "Start_", PlayerPrefs.GetInt("level"));
         CurrentState = State.Playing;
 
 
@@ -74,7 +74,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         MyAdmobAds_Manager.Instance.ShowSmallAdmobBanner();
-        
+
 
 
 
@@ -88,7 +88,7 @@ public class LevelManager : MonoBehaviour
 
 
 
-        
+
 
 
 
@@ -99,7 +99,7 @@ public class LevelManager : MonoBehaviour
 
         if (PlayerPrefs.GetInt("level") % 2 == 0)
         {
-           
+
             Debug.Log("ITS TWO");
             arratlength = 6;
             _camera.transform.position = new Vector3(0f, 3f, -10f);
@@ -107,7 +107,7 @@ public class LevelManager : MonoBehaviour
         else
         {
             Debug.Log("ITS THREE");
-           
+
             arratlength = 4;
             _camera.transform.position = new Vector3(0f, 3f, -10f);
         }
@@ -161,8 +161,8 @@ public class LevelManager : MonoBehaviour
                         storetube[i].gameObject.GetComponent<Animator>().enabled = true;
                         hintbool = true;
                         AddHint--;
-                       
-                        PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") -1);
+
+                        PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") - 1);
                         hinttext.text = AddHint.ToString();
                         Debug.Log("its running anim true");
 
@@ -244,9 +244,9 @@ public class LevelManager : MonoBehaviour
 
 
             AddTube--;
-           
-            PlayerPrefs.SetInt("Tube", PlayerPrefs.GetInt("Tube")  - 1);
-           
+
+            PlayerPrefs.SetInt("Tube", PlayerPrefs.GetInt("Tube") - 1);
+
             addtubetext.text = AddTube.ToString();
 
         }
@@ -261,11 +261,13 @@ public class LevelManager : MonoBehaviour
 
     public void SkipLevel()
     {
-        if (PlayerPrefs.GetInt("Undo") < 1 )
-            return;
-        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
-        
-         MyAdmobAds_Manager.ClaimReward += Reward;
+        if (PlayerPrefs.GetInt("Undo") < 1)
+        {
+            MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
+
+            MyAdmobAds_Manager.ClaimReward += Reward;
+        }
+
         //Reward()
     }
 
@@ -283,9 +285,9 @@ public class LevelManager : MonoBehaviour
         if (PlayerPrefs.GetInt("Undo") < 1 && (CurrentState != State.Playing || _undoStack.Count <= 0))
             return;
 
-       
-      
-         _undoStack.Pop();
+
+
+        _undoStack.Pop();
     }
 
     private void Update()
