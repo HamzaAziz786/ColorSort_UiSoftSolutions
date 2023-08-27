@@ -264,8 +264,8 @@ public class LevelManager : MonoBehaviour
         if (PlayerPrefs.GetInt("Undo") < 1 )
             return;
         MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
-
-        // MyAdmobAds_Manager.ClaimReward += Reward;
+        
+         MyAdmobAds_Manager.ClaimReward += Reward;
         //Reward()
     }
 
@@ -283,7 +283,7 @@ public class LevelManager : MonoBehaviour
         if (PlayerPrefs.GetInt("Undo") < 1 && (CurrentState != State.Playing || _undoStack.Count <= 0))
             return;
 
-        PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo")  - 1 );
+       
       
          _undoStack.Pop();
     }

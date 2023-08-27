@@ -322,6 +322,7 @@ public class MyAdmobAds_Manager : MonoBehaviour
                 if (rewardedAd.IsLoaded())
                 {
                     rewardedAd.Show();
+                   
                     AdBreakPanel = Instantiate(AdBreak);
                     Invoke(nameof(AdBreakDisable), 4f);
                 }
@@ -374,19 +375,21 @@ public class MyAdmobAds_Manager : MonoBehaviour
     public void HandleRewardedAdClosed(object sender, EventArgs args)
     {
         RequestRewardedVideo();
-        LevelManager.Instance.Reward();
+        ClaimReward();
+        //if (RewrdedClam && ClaimReward != null)
+        //    ClaimReward();
+       
         MonoBehaviour.print("HandleRewardedAdClosed event received");
     }
     public void HandleUserEarnedReward(object sender, Reward args)
     {
-        // GiveReward();
-        //if (RewrdedClam && ClaimReward != null)
-        //    ClaimReward();
-
+         //GiveReward();
+        
+       
         MonoBehaviour.print(
             "HandleRewardedAdRewarded event received for ");
     }
     #endregion
-
+    
 }
 
