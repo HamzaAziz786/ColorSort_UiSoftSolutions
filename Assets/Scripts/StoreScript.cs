@@ -24,7 +24,7 @@ public class StoreScript : MonoBehaviour
     public Image[] LockBg;
     public int[] LockBottlesPrice;
     public int[] LockBackgorundPrice;
-
+    int currentindexbottle; 
 
     public void Start()
     {
@@ -73,7 +73,8 @@ public class StoreScript : MonoBehaviour
     }
     public void SelectBottle(int selectbottle)
     {
-        selectbottlenumber = selectbottle;
+        currentindexbottle = selectbottle;
+         
 
 
     }
@@ -82,15 +83,16 @@ public class StoreScript : MonoBehaviour
 
         if (PlayerPrefs.GetInt("b" + currentspriteselect) == 0)
         {
-            if (LockBottlesPrice[currentspriteselect] <= PlayerPrefs.GetInt("Coins"))
+            if (PlayerPrefs.GetInt("Coins") >= LockBottlesPrice[currentspriteselect] )
             {
                 LockBottles[currentspriteselect].gameObject.SetActive(false);
                 PlayerPrefs.SetInt("b" + currentspriteselect, 1);
+                PlayerPrefs.SetInt("Coins",PlayerPrefs.GetInt("Coins") - LockBottlesPrice[currentspriteselect]);
             }
         }
         else
         {
-
+            selectbottlenumber = currentindexbottle;
             for (int i = 0; i < BottlesImages.Length; i++)
             {
 
