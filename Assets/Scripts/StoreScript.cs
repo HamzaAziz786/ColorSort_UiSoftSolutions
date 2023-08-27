@@ -4,6 +4,8 @@ using UnityEngine;
 using DG.Tweening;
 //using Microsoft.Unity.VisualStudio.Editor;
 using UnityEngine.UI;
+using System;
+using System.Reflection;
 
 public class StoreScript : MonoBehaviour
 {
@@ -18,14 +20,26 @@ public class StoreScript : MonoBehaviour
     public static int selectbottlenumber;
     public static int selectwallPapernumber;
 
+    public Image[] LockBottles;
+    public Image[] LockBg;
+    public int[] LockBottlesPrice;
+    public int[] LockBackgorundPrice;
+
+
     public void Start()
     {
         Instance = this;
-    
+        
     }
     public void OnEnable()
     {
-        
+        for (int i = 0; i < LockBottles.Length; i++)
+        {
+            if(PlayerPrefs.GetInt("b" + i) == 0)
+                LockBottles[i].gameObject.SetActive(true);
+            else
+                LockBottles[i].gameObject.SetActive(false);
+        }
     }
     public void Storepnl()
     {
@@ -60,16 +74,36 @@ public class StoreScript : MonoBehaviour
     public void SelectBottle(int selectbottle)
     {
         selectbottlenumber = selectbottle;
-       
+
+
     }
     public void SelectedSprite(int currentspriteselect)
     {
-        for (int i = 0; i < BottlesImages.Length; i++)
+
+        if (PlayerPrefs.GetInt("b" + currentspriteselect) == 0)
+        {
+            if (LockBottlesPrice[currentspriteselect] <= PlayerPrefs.GetInt("Coins"))
+            {
+                LockBottles[currentspriteselect].gameObject.SetActive(false);
+                PlayerPrefs.SetInt("b" + currentspriteselect, 1);
+            }
+        }
+        else
         {
 
-            BottlesImages[i].sprite = unselectedsprite;
+            for (int i = 0; i < BottlesImages.Length; i++)
+            {
+
+                BottlesImages[i].sprite = unselectedsprite;
+            }
+            BottlesImages[currentspriteselect].sprite = selectedsprite;
         }
-        BottlesImages[currentspriteselect].sprite = selectedsprite;
+
+
+
+
+
+       
     }
 
 
@@ -88,4 +122,6 @@ public class StoreScript : MonoBehaviour
         }
         WallPaperImages[currentspriteselect].sprite = selectedsprite;
     }
+
+    
 }

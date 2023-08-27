@@ -56,6 +56,7 @@ public class Purchaser : MonoBehaviour, IStoreListener
             // Begin to configure our connection to Purchasing
             InitializePurchasing();
         }
+        PlayerPrefs.SetInt("b" + 0, 1);
     }
 
     [Obsolete]
