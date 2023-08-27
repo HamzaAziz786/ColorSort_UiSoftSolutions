@@ -3057,8 +3057,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   addtubenum: 0
-  AddTube: 4
-  AddHint: 4
+  AddTube: 0
+  AddHint: 0
   AddUndo: 0
   arratlength: 0
   addtubetext: {fileID: 1119647317}
