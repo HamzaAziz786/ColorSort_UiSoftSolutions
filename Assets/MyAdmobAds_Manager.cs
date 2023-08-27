@@ -29,7 +29,7 @@ public class MyAdmobAds_Manager : MonoBehaviour
     public static ClaimEvent ClaimReward;
     [HideInInspector] public bool RewrdedClam = false;
     public GameObject AdBreak;
-    
+    public bool OncOmplete = false;
     private void Awake()
     {
         if (Instance == null)
@@ -312,7 +312,7 @@ public class MyAdmobAds_Manager : MonoBehaviour
         // Load the rewarded ad with the request.
         this.rewardedAd.LoadAd(request);
     }
-    public void ShowRewardBasedVideo()
+    public void ShowRewardBasedVideo(ClaimEvent claim)
     {
         if (IsInternetConnection())
         {

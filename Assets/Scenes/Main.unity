@@ -2897,8 +2897,8 @@ RectTransform:
   m_Father: {fileID: 369287652}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5291705, y: 0.2913628}
-  m_AnchorMax: {x: 0.88042563, y: 0.33351192}
+  m_AnchorMin: {x: 0.4670778, y: 0.29043686}
+  m_AnchorMax: {x: 0.8880842, y: 0.332586}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2949,8 +2949,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 40
-  m_fontSizeBase: 40
+  m_fontSize: 28.3
+  m_fontSizeBase: 28.3
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3779,7 +3779,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1196385102}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: OnClickUndo
+        m_MethodName: Reward
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

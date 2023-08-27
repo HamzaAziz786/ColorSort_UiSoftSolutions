@@ -6,6 +6,8 @@ using System.Linq;
 using dotmob;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
+
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
@@ -257,15 +259,28 @@ public class LevelManager : MonoBehaviour
         // _camera.transform.position = new Vector3(0f, -0.09f, -10f);
     }
 
-
+    public void SkipLevel()
+    {
+        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo(Reward);
+       // MyAdmobAds_Manager.ClaimReward += Reward;
+        
+    }
+    public void Reward()
+    {
+        PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
+        SceneManager.LoadScene(2);
+    }
     public void OnClickUndo()
     {
         Debug.Log("UNDO :" + _undoStack.Count);
-        if (CurrentState != State.Playing || _undoStack.Count <= 0 || HaveUndo)
+        //if (CurrentState != State.Playing || _undoStack.Count <= 0 || HaveUndo)
+        //    return;
+        if (PlayerPrefs.GetInt("Undo") < 1 && (CurrentState != State.Playing || _undoStack.Count <= 0))
             return;
+
         PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo")  - 1 );
       
-        var moveData = _undoStack.Pop();
+         _undoStack.Pop();
     }
 
     private void Update()

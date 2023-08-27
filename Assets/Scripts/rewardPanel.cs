@@ -37,10 +37,14 @@ public class rewardPanel : MonoBehaviour
 
     public void OnClickReward()
     {
-        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
+        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo(GiveReward);
         CancelInvoke(nameof(Scroller));
        
         Debug.Log(Reward[currentindex]);
+    }
+    public void GiveReward()
+    {
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + Reward[currentindex]);
     }
     public void Continue()
     {
