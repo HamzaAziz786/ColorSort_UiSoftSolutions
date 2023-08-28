@@ -6,6 +6,7 @@ using DG.Tweening;
 using UnityEngine.UI;
 using System;
 using System.Reflection;
+using TMPro;
 
 public class StoreScript : MonoBehaviour
 {
@@ -25,8 +26,8 @@ public class StoreScript : MonoBehaviour
     public int[] LockBottlesPrice;
     public int[] LockBackgorundPrice;
     int currentindexbottle; 
-    int currentindexbg; 
-
+    int currentindexbg;
+    public Text coins;
     public void Start()
     {
         Instance = this;
@@ -96,6 +97,7 @@ public class StoreScript : MonoBehaviour
                 LockBottles[currentspriteselect].gameObject.SetActive(false);
                 PlayerPrefs.SetInt("b" + currentspriteselect, 1);
                 PlayerPrefs.SetInt("Coins",PlayerPrefs.GetInt("Coins") - LockBottlesPrice[currentspriteselect]);
+                coins.text = PlayerPrefs.GetInt("Coins").ToString();
             }
         }
         else
@@ -133,6 +135,7 @@ public class StoreScript : MonoBehaviour
                 LockBg[currentspriteselect].gameObject.SetActive(false);
                 PlayerPrefs.SetInt("w" + currentspriteselect, 1);
                 PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - LockBackgorundPrice[currentspriteselect]);
+                coins.text = PlayerPrefs.GetInt("Coins").ToString();
             }
         }
 

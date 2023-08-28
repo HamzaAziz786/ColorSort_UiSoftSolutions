@@ -261,7 +261,7 @@ public class LevelManager : MonoBehaviour
 
     public void SkipLevel()
     {
-        if (PlayerPrefs.GetInt("Undo") < 1)
+        if (PlayerPrefs.GetInt("Undo") > 1)
         {
             MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
 
