@@ -49,7 +49,9 @@ public class rewardPanel : MonoBehaviour
     }
     public void Continue()
     {
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 200);
         InvokeRepeating(nameof(Scroller), .2f, .2f);
+
     }
 
 }

@@ -77,13 +77,13 @@ public class MyAdmobAds_Manager : MonoBehaviour
     }
     private void Start()
     {
-        if (enableTestMode)
-        {
+        //if (enableTestMode)
+        //{
 
-            bannerID = "ca-app-pub-4889903564798906/4644592750";
-            interstitialID = "ca-app-pub-4889903564798906/6279176423";
-            rewardedVideoID = "ca-app-pub-4889903564798906/1826857722";
-        }
+        //    bannerID = "ca-app-pub-4889903564798906/4644592750";
+        //    interstitialID = "ca-app-pub-4889903564798906/6279176423";
+        //    rewardedVideoID = "ca-app-pub-4889903564798906/1826857722";
+        //}
         SmallBannerOnceLoaded = false;
         LargeBannerOnceLoaded = false;
         if (IsInternetConnection())
@@ -328,6 +328,7 @@ public class MyAdmobAds_Manager : MonoBehaviour
                 }
                 else
                 {
+                    RequestRewardedVideo();
                     //UnityRewarded.ShowAd();
                 }
                 //if (!rewardedAd.IsLoaded())
