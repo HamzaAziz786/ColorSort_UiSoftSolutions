@@ -395,6 +395,7 @@ public class LevelManager : MonoBehaviour
 
         PlayClipIfCan(_winClip);
         CurrentState = State.Over;
+        PlayerPrefs.SetFloat("Pregression",PlayerPrefs.GetFloat("Pregression")+ 0.1f);
         RewardPanel.SetActive(true);
         ResourceManager.CompleteLevel(GameMode, Level.no);
         LevelCompleted?.Invoke();
