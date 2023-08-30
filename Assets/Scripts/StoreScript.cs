@@ -36,7 +36,7 @@ public class StoreScript : MonoBehaviour
     public TMP_Text NotificationPrice;
     public int CoinIndex;
     public Sprite[] notificationbottle;
-    
+    public GameObject Flare;
     public void Start()
     {
         Instance = this;
@@ -163,9 +163,10 @@ public class StoreScript : MonoBehaviour
     public void showNotificationPanel(Image giftimage,int PriceCoins)
     {
         NotificationPanel.SetActive(true);
-        NotificationPanel.transform.DOScale(1, 0.2f);
 
-        NotificationPAnelIamge.sprite = notificationbottle[currentindexbottle];
+        NotificationPanel.transform.DOScale(1, 0.2f);
+        Flare.transform.DORotate(new Vector3(0, 360, 0), 4).SetEase(Ease.InQuad).SetLoops(2, LoopType.Yoyo); 
+        NotificationPAnelIamge.sprite = notificationbottle[CoinIndex];
         NotificationPrice.text = PriceCoins.ToString();
     }
     public void CoinsBaseREward()
@@ -182,6 +183,20 @@ public class StoreScript : MonoBehaviour
         {
 
         }
+    }
+
+    public void RewardedVideoReward()
+    {
+        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
+        MyAdmobAds_Manager.ClaimReward += GiveReward;
+    }
+    public void GiveReward()
+    {
+        LockBottles[CoinIndex].gameObject.SetActive(false);
+        PlayerPrefs.SetInt("b" + CoinIndex, 1);
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - LockBottlesPrice[CoinIndex]);
+        coins.text = PlayerPrefs.GetInt("Coins").ToString();
+        ClosePurchasePanel();
     }
     public void ClosePurchasePanel()
     {
