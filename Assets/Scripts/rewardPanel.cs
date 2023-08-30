@@ -37,7 +37,7 @@ public class rewardPanel : MonoBehaviour
         else
         {
             currentprogression = (int)PlayerPrefs.GetFloat("Pregression");
-            Progression.text = (PlayerPrefs.GetFloat("Pregression") * 100).ToString();
+            Progression.text = (PlayerPrefs.GetFloat("Pregression") * 100).ToString("00");
             Progressioniamge.fillAmount -= PlayerPrefs.GetFloat("Pregression");
             
           //  Debug.Log(PlayerPrefs.GetFloat("Pregression"));

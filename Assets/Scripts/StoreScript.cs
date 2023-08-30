@@ -203,4 +203,20 @@ public class StoreScript : MonoBehaviour
         NotificationPanel.SetActive(false);
         NotificationPanel.transform.DOScale(0, 0.4f);
     }
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+
+
 }
