@@ -25,7 +25,7 @@ public class rewardPanel : MonoBehaviour
     private void OnEnable()
     {
         ClaimButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f);
-        InvokeRepeating(nameof(Scroller), .2f, .4f);
+        InvokeRepeating(nameof(Scroller), .2f, .2f);
         Debug.Log("h"+PlayerPrefs.GetFloat("Pregression"));
         //Pregression
         if (PlayerPrefs.GetFloat("Pregression") >= 1)
@@ -82,7 +82,7 @@ public class rewardPanel : MonoBehaviour
         ClaimButton.GetComponent<Button>().interactable = true;
         ContinueButton.GetComponent<Button>().interactable = false;
 
-        InvokeRepeating(nameof(Scroller), .2f, .4f);
+        InvokeRepeating(nameof(Scroller), .2f, .2f);
 
     }
 

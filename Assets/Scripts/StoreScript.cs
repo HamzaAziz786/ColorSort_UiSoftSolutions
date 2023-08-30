@@ -28,6 +28,14 @@ public class StoreScript : MonoBehaviour
     int currentindexbottle; 
     int currentindexbg;
     public Text coins;
+
+
+
+    public GameObject NotificationPanel;
+    public Image NotificationPAnelIamge;
+    public TMP_Text NotificationPrice;
+    public int CoinIndex;
+
     public void Start()
     {
         Instance = this;
@@ -92,13 +100,9 @@ public class StoreScript : MonoBehaviour
 
         if (PlayerPrefs.GetInt("b" + currentspriteselect) == 0)
         {
-            if (PlayerPrefs.GetInt("Coins") >= LockBottlesPrice[currentspriteselect] )
-            {
-                LockBottles[currentspriteselect].gameObject.SetActive(false);
-                PlayerPrefs.SetInt("b" + currentspriteselect, 1);
-                PlayerPrefs.SetInt("Coins",PlayerPrefs.GetInt("Coins") - LockBottlesPrice[currentspriteselect]);
-                coins.text = PlayerPrefs.GetInt("Coins").ToString();
-            }
+            CoinIndex = currentspriteselect;
+            showNotificationPanel(BottlesImages[currentspriteselect], LockBottlesPrice[currentspriteselect]);
+            
         }
         else
         {
@@ -155,5 +159,32 @@ public class StoreScript : MonoBehaviour
        
     }
 
-    
+    public void showNotificationPanel(Image giftimage,int PriceCoins)
+    {
+        NotificationPanel.SetActive(true);
+        NotificationPanel.transform.DOScale(1, 0.2f);
+
+        NotificationPAnelIamge = LockBottles[CoinIndex];
+        NotificationPrice.text = PriceCoins.ToString();
+    }
+    public void CoinsBaseREward()
+    {
+        if (PlayerPrefs.GetInt("Coins") >= LockBottlesPrice[CoinIndex])
+        {
+            LockBottles[CoinIndex].gameObject.SetActive(false);
+            PlayerPrefs.SetInt("b" + CoinIndex, 1);
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - LockBottlesPrice[CoinIndex]);
+            coins.text = PlayerPrefs.GetInt("Coins").ToString();
+            ClosePurchasePanel();
+        }
+        else
+        {
+
+        }
+    }
+    public void ClosePurchasePanel()
+    {
+        NotificationPanel.SetActive(false);
+        NotificationPanel.transform.DOScale(0, 0.4f);
+    }
 }
