@@ -35,7 +35,8 @@ public class StoreScript : MonoBehaviour
     public Image NotificationPAnelIamge;
     public TMP_Text NotificationPrice;
     public int CoinIndex;
-
+    public Sprite[] notificationbottle;
+    
     public void Start()
     {
         Instance = this;
@@ -91,7 +92,7 @@ public class StoreScript : MonoBehaviour
     public void SelectBottle(int selectbottle)
     {
         currentindexbottle = selectbottle;
-         
+       
 
 
     }
@@ -164,7 +165,7 @@ public class StoreScript : MonoBehaviour
         NotificationPanel.SetActive(true);
         NotificationPanel.transform.DOScale(1, 0.2f);
 
-        NotificationPAnelIamge = LockBottles[CoinIndex];
+        NotificationPAnelIamge.sprite = notificationbottle[currentindexbottle];
         NotificationPrice.text = PriceCoins.ToString();
     }
     public void CoinsBaseREward()

@@ -820,6 +820,7 @@ MonoBehaviour:
   NotificationPAnelIamge: {fileID: 0}
   NotificationPrice: {fileID: 0}
   CoinIndex: 0
+  notificationbottle: []
 --- !u!114 &17140867
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15457,6 +15458,7 @@ MonoBehaviour:
   NotificationPAnelIamge: {fileID: 0}
   NotificationPrice: {fileID: 0}
   CoinIndex: 0
+  notificationbottle: []
 --- !u!1 &626095804
 GameObject:
   m_ObjectHideFlags: 0
@@ -29526,6 +29528,7 @@ MonoBehaviour:
   NotificationPAnelIamge: {fileID: 0}
   NotificationPrice: {fileID: 0}
   CoinIndex: 0
+  notificationbottle: []
 --- !u!114 &1199211424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -58897,6 +58900,7 @@ MonoBehaviour:
   NotificationPAnelIamge: {fileID: 0}
   NotificationPrice: {fileID: 0}
   CoinIndex: 0
+  notificationbottle: []
 --- !u!114 &2090426982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62372,6 +62376,16 @@ MonoBehaviour:
   NotificationPAnelIamge: {fileID: 68514763}
   NotificationPrice: {fileID: 928352291}
   CoinIndex: 0
+  notificationbottle:
+  - {fileID: 21300000, guid: fd7015de4769b1b4e83d095b28e0a403, type: 3}
+  - {fileID: 21300000, guid: d1a741e3e0cd74046b95d04a381774f5, type: 3}
+  - {fileID: 21300000, guid: 0af4cb43fdd46e443be70732938f44f4, type: 3}
+  - {fileID: 21300000, guid: f281a8b3f46469042aeb984059f13e0a, type: 3}
+  - {fileID: 21300000, guid: 10df102116f055f458856445005c314a, type: 3}
+  - {fileID: 21300000, guid: e1a06aa3d9d7838498635be76f0d6a0c, type: 3}
+  - {fileID: 21300000, guid: 00ddec77afb19d844a222004ee5849a1, type: 3}
+  - {fileID: 21300000, guid: 97cdf5d092059a44f945b1ccac577931, type: 3}
+  - {fileID: 21300000, guid: e1a06aa3d9d7838498635be76f0d6a0c, type: 3}
 --- !u!222 &7255066004388990046
 CanvasRenderer:
   m_ObjectHideFlags: 0
