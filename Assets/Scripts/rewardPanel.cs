@@ -19,11 +19,16 @@ public class rewardPanel : MonoBehaviour
     int currentprogression;
     public Image Progressioniamge;
     public GameObject ProgressionRewardPanel;
+    float loadingtween;
+    public GameObject ClaimButton;
+    public GameObject ContinueButton;
     private void OnEnable()
     {
-        InvokeRepeating(nameof(Scroller), .2f, .2f);
+        ClaimButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f);
+        InvokeRepeating(nameof(Scroller), .2f, .4f);
+        Debug.Log("h"+PlayerPrefs.GetFloat("Pregression"));
         //Pregression
-        if (PlayerPrefs.GetFloat("Pregression") == 1)
+        if (PlayerPrefs.GetFloat("Pregression") >= 1)
         {
             PlayerPrefs.SetFloat("Pregression", 0);
             Progressioniamge.fillAmount =1;
@@ -34,7 +39,8 @@ public class rewardPanel : MonoBehaviour
             currentprogression = (int)PlayerPrefs.GetFloat("Pregression");
             Progression.text = (PlayerPrefs.GetFloat("Pregression") * 100).ToString();
             Progressioniamge.fillAmount -= PlayerPrefs.GetFloat("Pregression");
-            Debug.Log(PlayerPrefs.GetFloat("Pregression"));
+            
+          //  Debug.Log(PlayerPrefs.GetFloat("Pregression"));
         }
        
     }
@@ -67,11 +73,16 @@ public class rewardPanel : MonoBehaviour
     public void GiveReward()
     {
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + Reward[currentindex]);
+        ContinueButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f).SetDelay(.2f);
+        ClaimButton.GetComponent<Button>().interactable = false;
     }
     public void Continue()
     {
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 200);
-        InvokeRepeating(nameof(Scroller), .2f, .2f);
+        ClaimButton.GetComponent<Button>().interactable = true;
+        ContinueButton.GetComponent<Button>().interactable = false;
+
+        InvokeRepeating(nameof(Scroller), .2f, .4f);
 
     }
 
