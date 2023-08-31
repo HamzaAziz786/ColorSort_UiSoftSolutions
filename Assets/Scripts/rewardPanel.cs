@@ -22,6 +22,8 @@ public class rewardPanel : MonoBehaviour
     float loadingtween;
     public GameObject ClaimButton;
     public GameObject ContinueButton;
+    public int[] RewardList;
+    public int RenadomlyReward;
     private void OnEnable()
     {
         ClaimButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f);
@@ -85,5 +87,8 @@ public class rewardPanel : MonoBehaviour
         InvokeRepeating(nameof(Scroller), .2f, .2f);
 
     }
+    public void ProgressionCLaimReward()
+    {
 
+    }
 }

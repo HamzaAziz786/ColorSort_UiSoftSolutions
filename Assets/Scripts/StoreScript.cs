@@ -37,6 +37,7 @@ public class StoreScript : MonoBehaviour
     public int CoinIndex;
     public Sprite[] notificationbottle;
     public GameObject Flare;
+    public GameObject BgPurchasePanel;
     public void Start()
     {
         Instance = this;
@@ -142,6 +143,11 @@ public class StoreScript : MonoBehaviour
                 PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - LockBackgorundPrice[currentspriteselect]);
                 coins.text = PlayerPrefs.GetInt("Coins").ToString();
             }
+            else
+            {
+                BgPurchasePanel.SetActive(true);
+                BgPurchasePanel.transform.DOScale(1, 0.2f);
+            }
         }
 
 
@@ -159,7 +165,11 @@ public class StoreScript : MonoBehaviour
         }
        
     }
-
+    public void CloseBgPurchasePanel()
+    {
+        BgPurchasePanel.SetActive(false);
+        BgPurchasePanel.transform.DOScale(0, 0.2f);
+    }
     public void showNotificationPanel(Image giftimage,int PriceCoins)
     {
         NotificationPanel.SetActive(true);

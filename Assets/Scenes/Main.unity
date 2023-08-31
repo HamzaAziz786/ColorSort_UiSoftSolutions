@@ -1976,7 +1976,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &549222228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2652,18 +2652,6 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 741789287}
-        m_TargetAssemblyTypeName: rewardPanel, Assembly-CSharp
-        m_MethodName: OnClickReward
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 0
       - m_Target: {fileID: 549222227}
         m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
         m_MethodName: SetActive
@@ -5268,7 +5256,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d1a741e3e0cd74046b95d04a381774f5, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c3a0fc9ee6d28014191a796a0501f5e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -7977,7 +7965,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2044669030
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12892,6 +12880,13 @@ MonoBehaviour:
   LockBottlesPrice: 
   LockBackgorundPrice: 
   coins: {fileID: 0}
+  NotificationPanel: {fileID: 0}
+  NotificationPAnelIamge: {fileID: 0}
+  NotificationPrice: {fileID: 0}
+  CoinIndex: 0
+  notificationbottle: []
+  Flare: {fileID: 0}
+  BgPurchasePanel: {fileID: 0}
 --- !u!222 &2673231629057027491
 CanvasRenderer:
   m_ObjectHideFlags: 0
