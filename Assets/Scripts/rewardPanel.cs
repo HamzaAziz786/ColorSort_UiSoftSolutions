@@ -1,6 +1,5 @@
 using System.Collections;
 using System.Collections.Generic;
-
 using UnityEngine;
 using DG.Tweening;
 using System;
@@ -24,6 +23,7 @@ public class rewardPanel : MonoBehaviour
     public GameObject ContinueButton;
     public int[] RewardList;
     public int RenadomlyReward;
+    public TMP_Text ProgressionText;
     private void OnEnable()
     {
         ClaimButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f);
@@ -75,7 +75,7 @@ public class rewardPanel : MonoBehaviour
     public void GiveReward()
     {
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + Reward[currentindex]);
-        ContinueButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f).SetDelay(.2f);
+        //ContinueButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f).SetDelay(.2f);
         ClaimButton.GetComponent<Button>().interactable = false;
     }
     public void Continue()
@@ -89,6 +89,14 @@ public class rewardPanel : MonoBehaviour
     }
     public void ProgressionCLaimReward()
     {
-
+        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
+        MyAdmobAds_Manager.ClaimReward += ProgressionReward;
+       
+    }
+    public void ProgressionReward()
+    {
+        RenadomlyReward = (int)UnityEngine.Random.Range(0, RewardList.Length);
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + RewardList[RenadomlyReward]);
+        ProgressionText.text = RewardList[RenadomlyReward].ToString();
     }
 }

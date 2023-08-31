@@ -323,8 +323,8 @@ public class MyAdmobAds_Manager : MonoBehaviour
                 {
                     rewardedAd.Show();
                    
-                    AdBreakPanel = Instantiate(AdBreak);
-                    Invoke(nameof(AdBreakDisable), 4f);
+                    //AdBreakPanel = Instantiate(AdBreak);
+                    //Invoke(nameof(AdBreakDisable), 4f);
                 }
                 else
                 {

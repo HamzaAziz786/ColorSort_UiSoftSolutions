@@ -8711,7 +8711,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 7255066004388990045}
         m_TargetAssemblyTypeName: StoreScript, Assembly-CSharp
-        m_MethodName: ClosePurchasePanel
+        m_MethodName: CloseBgPurchasePanel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -14303,7 +14303,7 @@ RectTransform:
   m_GameObject: {fileID: 516438684}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1791557438}
