@@ -295,6 +295,7 @@ public class MyAdmobAds_Manager : MonoBehaviour
     void AdBreakDisable()
     {
         Destroy(AdBreakPanel);
+        rewardedAd.Show();
     }
     private void RequestRewardedVideo()
     {
@@ -321,10 +322,10 @@ public class MyAdmobAds_Manager : MonoBehaviour
 
                 if (rewardedAd.IsLoaded())
                 {
-                    rewardedAd.Show();
                    
-                    //AdBreakPanel = Instantiate(AdBreak);
-                    //Invoke(nameof(AdBreakDisable), 4f);
+                   
+                    AdBreakPanel = Instantiate(AdBreak,this.transform);
+                    Invoke(nameof(AdBreakDisable), 8f);
                 }
                 else
                 {

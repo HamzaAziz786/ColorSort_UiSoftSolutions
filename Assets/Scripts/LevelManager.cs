@@ -143,59 +143,53 @@ public class LevelManager : MonoBehaviour
     public void Tube_Hint()
     {
 
-        if (AddHint > 0)
+        hintbool = false;
+        for (int i = 0; i < arratlength; i++)
         {
-            hintbool = false;
-            for (int i = 0; i < arratlength; i++)
+
+            if (AddHint > 0 && storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid != null && i != comapretube && storetube[i].gameObject.GetComponent<Holder>().TopLiquid != null)
             {
-
-                if (storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid != null && i != comapretube && storetube[i].gameObject.GetComponent<Holder>().TopLiquid != null)
+                // Debug.Log("its running top liquid"+  i);
+                // Debug.Log("its running top liquid");
+                if (storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid.GroupId == storetube[i].gameObject.GetComponent<Holder>().TopLiquid.GroupId && !storetube[i].gameObject.GetComponent<Holder>().IsFull)
                 {
-                    // Debug.Log("its running top liquid"+  i);
-                    // Debug.Log("its running top liquid");
-                    if (storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid.GroupId == storetube[i].gameObject.GetComponent<Holder>().TopLiquid.GroupId && !storetube[i].gameObject.GetComponent<Holder>().IsFull)
-                    {
-                        storetube[comapretube].gameObject.GetComponent<Animator>().Rebind();
-                        storetube[comapretube].gameObject.GetComponent<Animator>().enabled = true;
-                        storetube[i].gameObject.GetComponent<Animator>().Rebind();
-                        storetube[i].gameObject.GetComponent<Animator>().enabled = true;
-                        hintbool = true;
-                        AddHint--;
+                    storetube[comapretube].gameObject.GetComponent<Animator>().Rebind();
+                    storetube[comapretube].gameObject.GetComponent<Animator>().enabled = true;
+                    storetube[i].gameObject.GetComponent<Animator>().Rebind();
+                    storetube[i].gameObject.GetComponent<Animator>().enabled = true;
+                    hintbool = true;
+                    AddHint--;
 
-                        PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") - 1);
-                        hinttext.text = AddHint.ToString();
-                        Debug.Log("its running anim true");
+                    PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") - 1);
+                    hinttext.text = AddHint.ToString();
+                    Debug.Log("its running anim true");
 
-                    }
-
-                }
-                if (i == arratlength - 1 && hintbool == false)
-                {
-                    Debug.Log("its running  match the null tube");
-
-
-                    Incremethintvalue();
                 }
 
             }
+            if (i == arratlength - 1 && hintbool == false)
+            {
+                Debug.Log("its running  match the null tube");
 
 
-
-
-
-
-
-
-
-            AudioClick.Instance.Click_Play();
-
+                Incremethintvalue();
+            }
 
         }
-        else
-        {
 
 
-        }
+
+
+
+
+
+
+
+        AudioClick.Instance.Click_Play();
+
+
+
+
 
 
     }
@@ -395,7 +389,7 @@ public class LevelManager : MonoBehaviour
 
         PlayClipIfCan(_winClip);
         CurrentState = State.Over;
-        PlayerPrefs.SetFloat("Pregression",PlayerPrefs.GetFloat("Pregression")+ 0.1f);
+        PlayerPrefs.SetFloat("Pregression", PlayerPrefs.GetFloat("Pregression") + 0.1f);
         RewardPanel.SetActive(true);
         ResourceManager.CompleteLevel(GameMode, Level.no);
         LevelCompleted?.Invoke();
