@@ -204,8 +204,8 @@ public class StoreScript : MonoBehaviour
     {
         LockBottles[CoinIndex].gameObject.SetActive(false);
         PlayerPrefs.SetInt("b" + CoinIndex, 1);
-        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - LockBottlesPrice[CoinIndex]);
-        coins.text = PlayerPrefs.GetInt("Coins").ToString();
+       
+       
         ClosePurchasePanel();
     }
     public void ClosePurchasePanel()
