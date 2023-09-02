@@ -147,7 +147,7 @@ public class LevelManager : MonoBehaviour
         for (int i = 0; i < arratlength; i++)
         {
 
-            if (AddHint > 0 && storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid != null && i != comapretube && storetube[i].gameObject.GetComponent<Holder>().TopLiquid != null)
+            if (storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid != null && i != comapretube && storetube[i].gameObject.GetComponent<Holder>().TopLiquid != null)
             {
                 // Debug.Log("its running top liquid"+  i);
                 // Debug.Log("its running top liquid");
