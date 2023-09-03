@@ -330,6 +330,8 @@ public class MyAdmobAds_Manager : MonoBehaviour
                 else
                 {
                     RequestRewardedVideo();
+                    AdBreakPanel = Instantiate(AdBreak, this.transform);
+                    Invoke(nameof(AdBreakDisable), 8f);
                     //UnityRewarded.ShowAd();
                 }
                 //if (!rewardedAd.IsLoaded())
