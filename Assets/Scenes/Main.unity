@@ -2774,6 +2774,7 @@ MonoBehaviour:
   RewardList: 
   RenadomlyReward: 0
   ProgressionText: {fileID: 0}
+  RewardGiftPanel: {fileID: 0}
 --- !u!114 &741789288
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6563,6 +6564,7 @@ MonoBehaviour:
   RewardList: 
   RenadomlyReward: 0
   ProgressionText: {fileID: 2036577556}
+  RewardGiftPanel: {fileID: 2044669029}
 --- !u!1 &1789068020
 GameObject:
   m_ObjectHideFlags: 0

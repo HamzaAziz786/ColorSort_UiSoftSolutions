@@ -382,8 +382,12 @@ public class MyAdmobAds_Manager : MonoBehaviour
         RequestRewardedVideo();
         ClaimReward();
         //if (RewrdedClam && ClaimReward != null)
+        //{
+
         //    ClaimReward();
-       
+        //    RewrdedClam = false;
+        //}
+
         MonoBehaviour.print("HandleRewardedAdClosed event received");
     }
     public void HandleUserEarnedReward(object sender, Reward args)

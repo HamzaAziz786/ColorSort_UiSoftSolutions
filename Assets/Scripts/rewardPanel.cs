@@ -24,9 +24,11 @@ public class rewardPanel : MonoBehaviour
     public int[] RewardList;
     public int RenadomlyReward;
     public TMP_Text ProgressionText;
+    public GameObject RewardGiftPanel;
     private void OnEnable()
     {
-        ClaimButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f);
+        ClaimButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f).OnComplete(() => OnEnableClaimBtn());
+       
         InvokeRepeating(nameof(Scroller), .2f, .2f);
         Debug.Log("h"+PlayerPrefs.GetFloat("Pregression"));
         //Pregression
@@ -50,7 +52,11 @@ public class rewardPanel : MonoBehaviour
     //{
     //    InvokeRepeating(nameof(Scroller), .2f, .2f);
     //}
-
+    public void OnEnableClaimBtn()
+    {
+        ContinueButton.transform.DOLocalMove(new Vector3(0, 0, 0), .5f).SetDelay(.2f);
+       
+    }
     public void Scroller()
     {
 
@@ -67,7 +73,9 @@ public class rewardPanel : MonoBehaviour
     {
         
         MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
+       
         MyAdmobAds_Manager.ClaimReward += GiveReward;
+        RewardGiftPanel.SetActive(false);
         CancelInvoke(nameof(Scroller));
        
         Debug.Log(Reward[currentindex]);
@@ -75,19 +83,16 @@ public class rewardPanel : MonoBehaviour
     public void GiveReward()
     {
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + Reward[currentindex]);
-        ContinueButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f).SetDelay(.2f);
-        ClaimButton.GetComponent<Button>().interactable = false;
+       
     }
     public void Continue()
     {
-        if(PlayerPrefs.GetInt("Coins")>=200)
-        {
-            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - 200);
-            ClaimButton.GetComponent<Button>().interactable = true;
-            ContinueButton.GetComponent<Button>().interactable = false;
+       
+            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 200);
+        RewardGiftPanel.SetActive(false);
 
-            InvokeRepeating(nameof(Scroller), .2f, .2f);
-        }
+
+
 
     }
     public void ProgressionCLaimReward()
