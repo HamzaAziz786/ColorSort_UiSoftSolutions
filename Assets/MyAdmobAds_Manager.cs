@@ -277,10 +277,11 @@ public class MyAdmobAds_Manager : MonoBehaviour
                             if (FirebaseRemoteConfig.DefaultInstance.GetValue("show_interstitial_panels").BooleanValue)
                             {
                                 Debug.Log("2");
-                                AdBreakPanel = Instantiate(AdBreak);
-                                Invoke(nameof(AdBreakDisable), 4f);
+                                interstitial.Show();
+                                //AdBreakPanel = Instantiate(AdBreak);
+                                //Invoke(nameof(AdBreakDisable), 4f);
                                 // interstitial.Show();
-                                Invoke(nameof(Intersitiol_admob), 3f);
+                                //Invoke(nameof(Intersitiol_admob), 3f);
                             }
                         }
 
@@ -308,12 +309,12 @@ public class MyAdmobAds_Manager : MonoBehaviour
         this.rewardedAd.OnUserEarnedReward += HandleUserEarnedReward;
         // Called when the ad is closed.
         this.rewardedAd.OnAdClosed += HandleRewardedAdClosed;
-
         // Create an empty ad request.
         AdRequest request = new AdRequest.Builder().Build();
         // Load the rewarded ad with the request.
         this.rewardedAd.LoadAd(request);
     }
+   
     public void ShowRewardBasedVideo()
     {
         if (IsInternetConnection())

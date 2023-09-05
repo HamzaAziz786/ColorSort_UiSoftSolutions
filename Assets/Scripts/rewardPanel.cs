@@ -71,12 +71,20 @@ public class rewardPanel : MonoBehaviour
 
     public void OnClickReward()
     {
-        
-        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
-       
-        MyAdmobAds_Manager.ClaimReward += GiveReward;
-        RewardGiftPanel.SetActive(false);
-        CancelInvoke(nameof(Scroller));
+        if(PlayerPrefs.GetInt("level")>3)
+        {
+            MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
+
+            MyAdmobAds_Manager.ClaimReward += GiveReward;
+            RewardGiftPanel.SetActive(false);
+            CancelInvoke(nameof(Scroller));
+        }
+        else
+        {
+            GiveReward();
+            RewardGiftPanel.SetActive(false);
+            CancelInvoke(nameof(Scroller));
+        }
        
         Debug.Log(Reward[currentindex]);
     }
