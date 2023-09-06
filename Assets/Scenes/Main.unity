@@ -4695,6 +4695,8 @@ MonoBehaviour:
   AddTube: 0
   AddHint: 0
   AddUndo: 0
+  addinttext: 4
+  hinttextnum: 4
   arratlength: 0
   addtubetext: {fileID: 1119647317}
   hinttext: {fileID: 2024858462}
@@ -7151,7 +7153,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1196385102}
         m_TargetAssemblyTypeName: LevelManager, Assembly-CSharp
-        m_MethodName: Incremethintvalue
+        m_MethodName: Tube_Hint
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

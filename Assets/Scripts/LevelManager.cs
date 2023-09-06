@@ -21,7 +21,9 @@ public class LevelManager : MonoBehaviour
     public int AddTube;
     public int AddHint;
     public int AddUndo;
-
+    
+    public int addinttext = 4;
+    public int hinttextnum = 4;
     public int arratlength = 0;
     public TextMeshProUGUI addtubetext, hinttext, undotext;
     [SerializeField] private AudioClip _winClip;
@@ -143,53 +145,52 @@ public class LevelManager : MonoBehaviour
     public void Tube_Hint()
     {
 
-        hintbool = false;
-        for (int i = 0; i < arratlength; i++)
+        if (hinttextnum != 0)
         {
-
-            if (storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid != null && i != comapretube && storetube[i].gameObject.GetComponent<Holder>().TopLiquid != null)
+            hintbool = false;
+            for (int i = 0; i < arratlength; i++)
             {
-                // Debug.Log("its running top liquid"+  i);
-                // Debug.Log("its running top liquid");
-                if (storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid.GroupId == storetube[i].gameObject.GetComponent<Holder>().TopLiquid.GroupId && !storetube[i].gameObject.GetComponent<Holder>().IsFull)
+
+                if (storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid != null && i != comapretube && storetube[i].gameObject.GetComponent<Holder>().TopLiquid != null)
                 {
-                    storetube[comapretube].gameObject.GetComponent<Animator>().Rebind();
-                    storetube[comapretube].gameObject.GetComponent<Animator>().enabled = true;
-                    storetube[i].gameObject.GetComponent<Animator>().Rebind();
-                    storetube[i].gameObject.GetComponent<Animator>().enabled = true;
-                    hintbool = true;
-                    AddHint--;
+                    // Debug.Log("its running top liquid"+  i);
+                    // Debug.Log("its running top liquid");
+                    if (storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid.GroupId == storetube[i].gameObject.GetComponent<Holder>().TopLiquid.GroupId && !storetube[i].gameObject.GetComponent<Holder>().IsFull)
+                    {
+                        storetube[comapretube].gameObject.GetComponent<Animator>().Rebind();
+                        storetube[comapretube].gameObject.GetComponent<Animator>().enabled = true;
+                        storetube[i].gameObject.GetComponent<Animator>().Rebind();
+                        storetube[i].gameObject.GetComponent<Animator>().enabled = true;
+                        hintbool = true;
+                        hinttextnum--;
+                        hinttext.text = hinttextnum.ToString();
+                        Debug.Log("its running anim true");
 
-                    PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") - 1);
-                    hinttext.text = AddHint.ToString();
-                    Debug.Log("its running anim true");
+                    }
 
+                }
+                if (i == arratlength - 1 && hintbool == false)
+                {
+                    Debug.Log("its running  match the null tube");
+
+
+                    Incremethintvalue();
                 }
 
             }
-            if (i == arratlength - 1 && hintbool == false)
-            {
-                Debug.Log("its running  match the null tube");
 
 
-                Incremethintvalue();
-            }
+
+
+
+
+
+
+
+            AudioClick.Instance.Click_Play();
+
 
         }
-
-
-
-
-
-
-
-
-
-        AudioClick.Instance.Click_Play();
-
-
-
-
 
 
     }
@@ -205,8 +206,8 @@ public class LevelManager : MonoBehaviour
                 storetube[j].gameObject.GetComponent<Animator>().Rebind();
                 storetube[j].gameObject.GetComponent<Animator>().enabled = true;
                 hintbool = true;
-                AddHint--;
-                hinttext.text = AddHint.ToString();
+                hinttextnum--;
+                hinttext.text = hinttextnum.ToString();
             }
             if (j == arratlength - 1 && hintbool == false)
             {
@@ -228,8 +229,8 @@ public class LevelManager : MonoBehaviour
 
 
 
-        if (AddTube > 0)
-        {
+        //if (AddTube > 0)
+        //{
 
 
             storetube[addtubenum - AddTube].gameObject.SetActive(true);
@@ -243,13 +244,13 @@ public class LevelManager : MonoBehaviour
 
             addtubetext.text = AddTube.ToString();
 
-        }
-        else
-        {
+        //}
+        //else
+        //{
 
-        }
-        Debug.Log("value of add int" + AddTube);
-        AudioClick.Instance.Click_Play();
+        //}
+        //Debug.Log("value of add int" + AddTube);
+        //AudioClick.Instance.Click_Play();
         // _camera.transform.position = new Vector3(0f, -0.09f, -10f);
     }
 
