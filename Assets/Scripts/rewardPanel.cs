@@ -54,7 +54,7 @@ public class rewardPanel : MonoBehaviour
     //}
     public void OnEnableClaimBtn()
     {
-        ContinueButton.transform.DOLocalMove(new Vector3(0, 0, 0), .5f).SetDelay(.2f);
+       // ContinueButton.transform.DOLocalMove(new Vector3(0, 0, 0), .5f).SetDelay(.2f);
        
     }
     public void Scroller()
