@@ -216,8 +216,8 @@ public class LevelManager : MonoBehaviour
                 storetube[j].gameObject.GetComponent<Animator>().Rebind();
                 storetube[j].gameObject.GetComponent<Animator>().enabled = true;
                 hintbool = true;
-                hinttextnum--;
-                hinttext.text = hinttextnum.ToString();
+                //hinttextnum--;
+                //hinttext.text = hinttextnum.ToString();
             }
             if (j == arratlength - 1 && hintbool == false)
             {
