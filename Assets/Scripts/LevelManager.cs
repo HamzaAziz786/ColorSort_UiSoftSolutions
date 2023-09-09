@@ -81,11 +81,11 @@ public class LevelManager : MonoBehaviour
 
 
         AddTube = PlayerPrefs.GetInt("Tube");
-        hinttextnum = PlayerPrefs.GetInt("Hints");
+        AddHint = PlayerPrefs.GetInt("Hints");
         AddUndo = PlayerPrefs.GetInt("Undo");
 
         addtubetext.text = AddTube.ToString();
-        hinttext.text = hinttextnum.ToString();
+        hinttext.text = AddHint.ToString();
         undotext.text = AddUndo.ToString();
 
 
@@ -145,11 +145,9 @@ public class LevelManager : MonoBehaviour
     public void Tube_Hint()
     {
 
-        if (hinttextnum != 0)
+        if (AddHint != 0)
         {
             hintbool = false;
-            hinttextnum--;
-            hinttext.text = hinttextnum.ToString();
             for (int i = 0; i < arratlength; i++)
             {
 
@@ -164,10 +162,12 @@ public class LevelManager : MonoBehaviour
                         storetube[i].gameObject.GetComponent<Animator>().Rebind();
                         storetube[i].gameObject.GetComponent<Animator>().enabled = true;
                         hintbool = true;
-                      
-                        //PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") -1);
+                        AddHint--;
+                        hinttext.text = AddHint.ToString();
+                        
 
                         Debug.Log("its running anim true");
+                       
 
                     }
 
@@ -202,7 +202,7 @@ public class LevelManager : MonoBehaviour
     }
     public void HintReward()
     {
-        hinttextnum++;
+        AddHint++;
     }
     public void Incremethintvalue()
     {
@@ -216,7 +216,8 @@ public class LevelManager : MonoBehaviour
                 storetube[j].gameObject.GetComponent<Animator>().Rebind();
                 storetube[j].gameObject.GetComponent<Animator>().enabled = true;
                 hintbool = true;
-               
+                AddHint--;
+                hinttext.text = AddHint.ToString();
             }
             if (j == arratlength - 1 && hintbool == false)
             {
