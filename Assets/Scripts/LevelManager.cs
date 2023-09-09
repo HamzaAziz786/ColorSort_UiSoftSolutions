@@ -80,13 +80,13 @@ public class LevelManager : MonoBehaviour
 
 
 
-        AddTube = PlayerPrefs.GetInt("Tube");
-        hinttextnum = PlayerPrefs.GetInt("Hints");
-        AddUndo = PlayerPrefs.GetInt("Undo");
+        //AddTube = PlayerPrefs.GetInt("Tube");
+        //AddHint = PlayerPrefs.GetInt("Hints");
+        //AddUndo = PlayerPrefs.GetInt("Undo");
 
-        addtubetext.text = AddTube.ToString();
-        hinttext.text = hinttextnum.ToString();
-        undotext.text = AddUndo.ToString();
+        addtubetext.text = PlayerPrefs.GetInt("Tube").ToString();
+        hinttext.text = PlayerPrefs.GetInt("Hints").ToString();
+        undotext.text = PlayerPrefs.GetInt("Undo").ToString();
 
 
 
@@ -164,7 +164,7 @@ public class LevelManager : MonoBehaviour
                         hintbool = true;
                         hinttextnum--;
                         hinttext.text = hinttextnum.ToString();
-                        //PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") -1);
+                        ////PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") -1);
 
                         Debug.Log("its running anim true");
                        
