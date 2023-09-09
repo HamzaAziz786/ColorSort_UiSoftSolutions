@@ -81,11 +81,11 @@ public class LevelManager : MonoBehaviour
 
 
         AddTube = PlayerPrefs.GetInt("Tube");
-        AddHint = PlayerPrefs.GetInt("Hints");
+        hinttextnum = PlayerPrefs.GetInt("Hints");
         AddUndo = PlayerPrefs.GetInt("Undo");
 
         addtubetext.text = AddTube.ToString();
-        hinttext.text = AddHint.ToString();
+        hinttext.text = hinttextnum.ToString();
         undotext.text = AddUndo.ToString();
 
 
@@ -148,6 +148,8 @@ public class LevelManager : MonoBehaviour
         if (hinttextnum != 0)
         {
             hintbool = false;
+            hinttextnum--;
+            hinttext.text = hinttextnum.ToString();
             for (int i = 0; i < arratlength; i++)
             {
 
@@ -162,8 +164,9 @@ public class LevelManager : MonoBehaviour
                         storetube[i].gameObject.GetComponent<Animator>().Rebind();
                         storetube[i].gameObject.GetComponent<Animator>().enabled = true;
                         hintbool = true;
-                        hinttextnum--;
-                        hinttext.text = hinttextnum.ToString();
+                      
+                        //PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") -1);
+
                         Debug.Log("its running anim true");
 
                     }
@@ -213,8 +216,7 @@ public class LevelManager : MonoBehaviour
                 storetube[j].gameObject.GetComponent<Animator>().Rebind();
                 storetube[j].gameObject.GetComponent<Animator>().enabled = true;
                 hintbool = true;
-                hinttextnum--;
-                hinttext.text = hinttextnum.ToString();
+               
             }
             if (j == arratlength - 1 && hintbool == false)
             {
@@ -271,6 +273,7 @@ public class LevelManager : MonoBehaviour
         {
             PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
             PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") - 1);
+            undotext.text = PlayerPrefs.GetInt("Undo").ToString();
             SceneManager.LoadScene(2);
         }
 
@@ -280,7 +283,7 @@ public class LevelManager : MonoBehaviour
     public void Reward()
     {
         PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
-        PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") - 1);
+        PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") + 1);
         SceneManager.LoadScene(2);
     }
     public void OnClickUndo()
