@@ -74,7 +74,8 @@ public class LevelCompletePanel : ShowHidable
     {
         if (PlayerPrefs.GetInt("level")>5 /*PlayerPrefs.GetInt("level") != 3 && PlayerPrefs.GetInt("level") != 1 && PlayerPrefs.GetInt("level") != 2*/)
         {
-            MyAdmobAds_Manager.Instance.ShowInterstitial();
+            //  MyAdmobAds_Manager.Instance.ShowInterstitial();
+            AdsController.instance.ShowAd(AdNetwork.ADMOB,AdType.INTERSTITIAL);
         }
         //else
         //{

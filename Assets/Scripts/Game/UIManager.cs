@@ -51,7 +51,7 @@ namespace Game
             var point = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f)).WithZ(0);
             Instantiate(_winEffect, point, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
-            FirebaseAnaLytics.instance.LevelsEvent("Level_", "Complete_", PlayerPrefs.GetInt("level"));
+           // FirebaseAnaLytics.instance.LevelsEvent("Level_", "Complete_", PlayerPrefs.GetInt("level"));
             _levelCompletePanel.Show();
         }
 
@@ -71,7 +71,7 @@ namespace Game
             //}
             Debug.Log("call times");
             PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
-            FirebaseAnaLytics.instance.LevelsEvent("Level_", "Start_", PlayerPrefs.GetInt("level"));
+           // FirebaseAnaLytics.instance.LevelsEvent("Level_", "Start_", PlayerPrefs.GetInt("level"));
             GameManager.LoadGame(new LoadGameData
             {
                 //Level = ResourceManager.GetLevel(gameMode, levelNo + 1),

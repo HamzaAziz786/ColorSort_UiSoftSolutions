@@ -197,8 +197,7 @@ public class StoreScript : MonoBehaviour
 
     public void RewardedVideoReward()
     {
-        MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
-        MyAdmobAds_Manager.ClaimReward += GiveReward;
+        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
     }
     public void GiveReward()
     {

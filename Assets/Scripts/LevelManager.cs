@@ -68,14 +68,14 @@ public class LevelManager : MonoBehaviour
         Level = ResourceManager.GetLevel(loadGameData.GameMode, PlayerPrefs.GetInt("level"));
 
         LoadLevel();
-        FirebaseAnaLytics.instance.LevelsEvent("Level_", "Start_", PlayerPrefs.GetInt("level"));
+       // FirebaseAnaLytics.instance.LevelsEvent("Level_", "Start_", PlayerPrefs.GetInt("level"));
         CurrentState = State.Playing;
 
 
     }
     private void Start()
     {
-        MyAdmobAds_Manager.Instance.ShowSmallAdmobBanner();
+       // MyAdmobAds_Manager.Instance.ShowSmallAdmobBanner();
 
 
 
@@ -258,9 +258,7 @@ public class LevelManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Undo") < 1)
         {
-            MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
-
-            MyAdmobAds_Manager.ClaimReward += Reward;
+            AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, Reward);
         }
         else
         {
