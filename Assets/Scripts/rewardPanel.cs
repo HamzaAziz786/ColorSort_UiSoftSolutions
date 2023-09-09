@@ -73,9 +73,7 @@ public class rewardPanel : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("level")>3)
         {
-            //MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
-
-            //MyAdmobAds_Manager.ClaimReward += GiveReward;
+            AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
             RewardGiftPanel.SetActive(false);
             CancelInvoke(nameof(Scroller));
         }
@@ -105,8 +103,7 @@ public class rewardPanel : MonoBehaviour
     }
     public void ProgressionCLaimReward()
     {
-        //MyAdmobAds_Manager.Instance.ShowRewardBasedVideo();
-        //MyAdmobAds_Manager.ClaimReward += ProgressionReward;
+       
         AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, ProgressionReward);
        
     }

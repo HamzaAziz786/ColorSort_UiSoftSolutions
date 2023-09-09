@@ -74,7 +74,7 @@ public class AdsController : MonoBehaviour
         else
             isProUser = false;
 
-            admobController.ShowLoaded += loadSceen;
+            //admobController.ShowLoaded += loadSceen;
         if (IsInternetConnection)
         {
             DoAdsInitialization();
@@ -102,7 +102,7 @@ public class AdsController : MonoBehaviour
         {
             isAdInitialized = false;
           yield return new WaitForSeconds(1f);
-            loadSceen();
+            //loadSceen();
         }
     }
     //void AppopenLoad()
@@ -111,21 +111,21 @@ public class AdsController : MonoBehaviour
     //        admobController.LoadAd_AppOpen();
     //}
   public  bool onceAppOpen = false;
-  public void loadSceen()
-  {
-        if (!onceAppOpen)
-        {
-            StartCoroutine(WaitLoding());
-            onceAppOpen = true;
-        }
-  }
-    IEnumerator WaitLoding()
-    {
-        //if (PlayerPrefs.GetInt("GameLoad") != 1)
-        //    admobController.ShowAd_AppOpen();
-        yield return new WaitForSeconds(3f);
-          SceneManager.LoadScene("Menu");
-    }
+  //public void loadSceen()
+  //{
+  //      if (!onceAppOpen)
+  //      {
+  //          StartCoroutine(WaitLoding());
+  //          onceAppOpen = true;
+  //      }
+  //}
+  //  IEnumerator WaitLoding()
+  //  {
+  //      //if (PlayerPrefs.GetInt("GameLoad") != 1)
+  //      //    admobController.ShowAd_AppOpen();
+  //      yield return new WaitForSeconds(3f);
+  //        SceneManager.LoadScene("Menu");
+  //  }
 
    
     public bool IsInternetConnection

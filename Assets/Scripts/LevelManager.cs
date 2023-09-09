@@ -22,8 +22,8 @@ public class LevelManager : MonoBehaviour
     public int AddHint;
     public int AddUndo;
     
-    public int addinttext = 4;
-    public int hinttextnum = 4;
+    public int addinttext ;
+    public int hinttextnum ;
     public int arratlength = 0;
     public TextMeshProUGUI addtubetext, hinttext, undotext;
     [SerializeField] private AudioClip _winClip;
@@ -75,8 +75,8 @@ public class LevelManager : MonoBehaviour
     }
     private void Start()
     {
-       // MyAdmobAds_Manager.Instance.ShowSmallAdmobBanner();
-
+        // MyAdmobAds_Manager.Instance.ShowSmallAdmobBanner();
+        AdsController.instance.ShowAd(AdNetwork.ADMOB, 0);
 
 
 
@@ -191,8 +191,15 @@ public class LevelManager : MonoBehaviour
 
 
         }
+        else
+        {
+            AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, HintReward);
+        }
 
-
+    }
+    public void HintReward()
+    {
+        hinttextnum++;
     }
     public void Incremethintvalue()
     {
@@ -229,8 +236,8 @@ public class LevelManager : MonoBehaviour
 
 
 
-        //if (AddTube > 0)
-        //{
+        if (AddTube > 0)
+        {
 
 
             storetube[addtubenum - AddTube].gameObject.SetActive(true);
@@ -244,11 +251,11 @@ public class LevelManager : MonoBehaviour
 
             addtubetext.text = AddTube.ToString();
 
-        //}
-        //else
-        //{
+        }
+        else
+        {
 
-        //}
+        }
         //Debug.Log("value of add int" + AddTube);
         //AudioClick.Instance.Click_Play();
         // _camera.transform.position = new Vector3(0f, -0.09f, -10f);

@@ -2863,7 +2863,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   testMode: 0
-  admobController: {fileID: 0}
+  admobController: {fileID: 1882837413}
   isAdInitialized: 0
   unityAdsID: 
   interstitialPlacementID: 
@@ -2893,7 +2893,7 @@ MonoBehaviour:
   rewardedID: ca-app-pub-4889903564798906/1826857722
   AppOpenID: 
   banneryAdType: 0
-  bannerAdPosition: 
+  bannerAdPosition: 0000000001000000
   selectedAdPosition_Banner: 0
   AdBreak: {fileID: 5844273366388960042, guid: ca10ef292ae19724b83e37fe6111956b, type: 3}
 --- !u!1 &1957894568
