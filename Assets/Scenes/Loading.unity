@@ -2895,7 +2895,7 @@ MonoBehaviour:
   banneryAdType: 0
   bannerAdPosition: 
   selectedAdPosition_Banner: 0
-  AdBreak: {fileID: 0}
+  AdBreak: {fileID: 5844273366388960042, guid: ca10ef292ae19724b83e37fe6111956b, type: 3}
 --- !u!1 &1957894568
 GameObject:
   m_ObjectHideFlags: 0
