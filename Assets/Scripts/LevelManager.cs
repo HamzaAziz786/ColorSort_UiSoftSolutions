@@ -81,11 +81,11 @@ public class LevelManager : MonoBehaviour
 
 
         AddTube = PlayerPrefs.GetInt("Tube");
-        AddHint = PlayerPrefs.GetInt("Hints");
+        hinttextnum = PlayerPrefs.GetInt("Hints");
         AddUndo = PlayerPrefs.GetInt("Undo");
 
         addtubetext.text = AddTube.ToString();
-        hinttext.text = AddHint.ToString();
+        hinttext.text = hinttextnum.ToString();
         undotext.text = AddUndo.ToString();
 
 
@@ -145,7 +145,7 @@ public class LevelManager : MonoBehaviour
     public void Tube_Hint()
     {
 
-        if (AddHint != 0)
+        if (hinttextnum != 0)
         {
             hintbool = false;
             for (int i = 0; i < arratlength; i++)
@@ -162,9 +162,9 @@ public class LevelManager : MonoBehaviour
                         storetube[i].gameObject.GetComponent<Animator>().Rebind();
                         storetube[i].gameObject.GetComponent<Animator>().enabled = true;
                         hintbool = true;
-                        AddHint--;
-                        hinttext.text = AddHint.ToString();
-                        
+                        hinttextnum--;
+                        hinttext.text = hinttextnum.ToString();
+                        //PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") -1);
 
                         Debug.Log("its running anim true");
                        
@@ -202,7 +202,7 @@ public class LevelManager : MonoBehaviour
     }
     public void HintReward()
     {
-        AddHint++;
+        hinttextnum++;
     }
     public void Incremethintvalue()
     {
@@ -216,8 +216,8 @@ public class LevelManager : MonoBehaviour
                 storetube[j].gameObject.GetComponent<Animator>().Rebind();
                 storetube[j].gameObject.GetComponent<Animator>().enabled = true;
                 hintbool = true;
-                AddHint--;
-                hinttext.text = AddHint.ToString();
+                hinttextnum--;
+                hinttext.text = hinttextnum.ToString();
             }
             if (j == arratlength - 1 && hintbool == false)
             {
