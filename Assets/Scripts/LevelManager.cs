@@ -53,6 +53,7 @@ public class LevelManager : MonoBehaviour
     public Sprite[] BakcgroundsSprites;
     public ParticleSystem confetti;
     public GameObject RewardPanel;
+    public GameObject HintVideoIcon;
     private void Awake()
     {
         Instance = this;
@@ -87,7 +88,14 @@ public class LevelManager : MonoBehaviour
         addtubetext.text = PlayerPrefs.GetInt("Tube").ToString();
         hinttext.text = PlayerPrefs.GetInt("Hints").ToString();
         undotext.text = PlayerPrefs.GetInt("Undo").ToString();
-
+        if (PlayerPrefs.GetInt("Hints")<=0)
+        {
+            HintVideoIcon.SetActive(false);
+        }
+        else
+        {
+            HintVideoIcon.SetActive(true);
+        }
 
 
 
@@ -165,6 +173,14 @@ public class LevelManager : MonoBehaviour
                         //hinttextnum--;
                         PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") - 1);
                         hinttext.text = PlayerPrefs.GetInt("Hints").ToString();
+                        if (PlayerPrefs.GetInt("Hints") <= 0)
+                        {
+                            HintVideoIcon.SetActive(false);
+                        }
+                        else
+                        {
+                            HintVideoIcon.SetActive(true);
+                        }
 
                         Debug.Log("its running anim true");
                        
@@ -204,6 +220,7 @@ public class LevelManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") + 1);
         hinttext.text = PlayerPrefs.GetInt("Hints").ToString();
+        HintVideoIcon.SetActive(false);
         //hinttextnum++;
     }
     public void Incremethintvalue()
