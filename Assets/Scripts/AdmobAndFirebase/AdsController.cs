@@ -47,6 +47,7 @@ public class AdsController : MonoBehaviour
     [HideInInspector] public int CountP = 0, CountM = 1, CountInter = 0;
     public delegate void IAPSuccess();
     public IAPSuccess FunRetCal;
+   
     #endregion
     #region Unity Functions And Loading Sequence
     void Awake()
