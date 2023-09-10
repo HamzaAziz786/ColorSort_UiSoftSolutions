@@ -25,6 +25,7 @@ public class rewardPanel : MonoBehaviour
     public int RenadomlyReward;
     public TMP_Text ProgressionText;
     public GameObject RewardGiftPanel;
+    public GameObject CoongratualtionsPanel;
     private void OnEnable()
     {
         ClaimButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f).OnComplete(() => OnEnableClaimBtn());
@@ -75,12 +76,14 @@ public class rewardPanel : MonoBehaviour
         {
             AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
             RewardGiftPanel.SetActive(false);
+            
             CancelInvoke(nameof(Scroller));
         }
         else
         {
             GiveReward();
             RewardGiftPanel.SetActive(false);
+            CoongratualtionsPanel.SetActive(true);
             CancelInvoke(nameof(Scroller));
         }
        
@@ -89,7 +92,8 @@ public class rewardPanel : MonoBehaviour
     public void GiveReward()
     {
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + Reward[currentindex]);
-       
+        CoongratualtionsPanel.SetActive(true);
+
     }
     public void Continue()
     {
