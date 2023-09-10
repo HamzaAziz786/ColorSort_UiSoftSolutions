@@ -197,8 +197,27 @@ public class StoreScript : MonoBehaviour
 
     public void RewardedVideoReward()
     {
+        if (AdsController.instance.admobController.IsRewardedAdLoaded())
+        {
+            AdsController.instance.LoadingPanel.SetActive(true);
+            Invoke(nameof(BottlesReward), 8f);
+        }
+        else
+        {
+            AdsController.instance.LoadingPanel.SetActive(true);
+            AdsController.instance.admobController.RequestRewardedAd();
+            Invoke(nameof(BottlesReward), 8f);
+        }
+       
+    }
+
+    public void BottlesReward()
+    {
         AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
     }
+
+
+
     public void GiveReward()
     {
         LockBottles[CoinIndex].gameObject.SetActive(false);

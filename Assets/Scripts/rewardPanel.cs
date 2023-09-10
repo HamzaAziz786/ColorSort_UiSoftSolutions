@@ -74,7 +74,18 @@ public class rewardPanel : MonoBehaviour
     {
         if(PlayerPrefs.GetInt("level")>3)
         {
-            AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
+
+            if (AdsController.instance.admobController.IsRewardedAdLoaded())
+            {
+                AdsController.instance.LoadingPanel.SetActive(true);
+                Invoke(nameof(TimeBaseReward), 8f);
+            }
+            else
+            {
+                AdsController.instance.LoadingPanel.SetActive(true);
+                AdsController.instance.admobController.RequestRewardedAd();
+                Invoke(nameof(TimeBaseReward), 8f);
+            }
             //RewardGiftPanel.SetActive(false);
             
             CancelInvoke(nameof(Scroller));
@@ -89,6 +100,12 @@ public class rewardPanel : MonoBehaviour
        
         Debug.Log(Reward[currentindex]);
     }
+
+    public void TimeBaseReward()
+    {
+        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
+    }
+
     public void GiveReward()
     {
         PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + Reward[currentindex]);
