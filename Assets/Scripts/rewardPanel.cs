@@ -75,14 +75,14 @@ public class rewardPanel : MonoBehaviour
         if(PlayerPrefs.GetInt("level")>3)
         {
             AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
-            RewardGiftPanel.SetActive(false);
+            //RewardGiftPanel.SetActive(false);
             
             CancelInvoke(nameof(Scroller));
         }
         else
         {
             GiveReward();
-            RewardGiftPanel.SetActive(false);
+           // RewardGiftPanel.SetActive(false);
             CoongratualtionsPanel.SetActive(true);
             CancelInvoke(nameof(Scroller));
         }
@@ -99,7 +99,8 @@ public class rewardPanel : MonoBehaviour
     {
        
             PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 200);
-        RewardGiftPanel.SetActive(false);
+        CoongratualtionsPanel.SetActive(true);
+        // RewardGiftPanel.SetActive(false);
 
 
 
