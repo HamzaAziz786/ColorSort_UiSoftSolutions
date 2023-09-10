@@ -38,6 +38,7 @@ public class StoreScript : MonoBehaviour
     public Sprite[] notificationbottle;
     public GameObject Flare;
     public GameObject BgPurchasePanel;
+    public GameObject RewardBottlePanel;
     public void Start()
     {
         Instance = this;
@@ -187,6 +188,7 @@ public class StoreScript : MonoBehaviour
             PlayerPrefs.SetInt("b" + CoinIndex, 1);
             PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") - LockBottlesPrice[CoinIndex]);
             coins.text = PlayerPrefs.GetInt("Coins").ToString();
+            RewardBottlePanel.SetActive(true);
             ClosePurchasePanel();
         }
         else
@@ -221,6 +223,7 @@ public class StoreScript : MonoBehaviour
     public void GiveReward()
     {
         LockBottles[CoinIndex].gameObject.SetActive(false);
+        RewardBottlePanel.SetActive(true);
         PlayerPrefs.SetInt("b" + CoinIndex, 1);
        
        
