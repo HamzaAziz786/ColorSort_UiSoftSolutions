@@ -4513,6 +4513,7 @@ MonoBehaviour:
   confetti: {fileID: 198502486481479542}
   RewardPanel: {fileID: 2044669029}
   HintVideoIcon: {fileID: 1556310384}
+  RestartVideoIcon: {fileID: 1187223110}
 --- !u!1 &1196549637
 GameObject:
   m_ObjectHideFlags: 0

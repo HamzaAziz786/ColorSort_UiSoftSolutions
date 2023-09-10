@@ -54,6 +54,7 @@ public class LevelManager : MonoBehaviour
     public ParticleSystem confetti;
     public GameObject RewardPanel;
     public GameObject HintVideoIcon;
+    public GameObject RestartVideoIcon;
     private void Awake()
     {
         Instance = this;
@@ -90,13 +91,21 @@ public class LevelManager : MonoBehaviour
         undotext.text = PlayerPrefs.GetInt("Undo").ToString();
         if (PlayerPrefs.GetInt("Hints")<=0)
         {
-            HintVideoIcon.SetActive(false);
+            HintVideoIcon.SetActive(true);
         }
         else
         {
-            HintVideoIcon.SetActive(true);
+            HintVideoIcon.SetActive(false);
         }
 
+        if (PlayerPrefs.GetInt("Undo") <= 0)
+        {
+            RestartVideoIcon.SetActive(true);
+        }
+        else
+        {
+            RestartVideoIcon.SetActive(false);
+        }
 
 
 
@@ -175,11 +184,11 @@ public class LevelManager : MonoBehaviour
                         hinttext.text = PlayerPrefs.GetInt("Hints").ToString();
                         if (PlayerPrefs.GetInt("Hints") <= 0)
                         {
-                            HintVideoIcon.SetActive(false);
+                            HintVideoIcon.SetActive(true);
                         }
                         else
                         {
-                            HintVideoIcon.SetActive(true);
+                            HintVideoIcon.SetActive(false);
                         }
 
                         Debug.Log("its running anim true");
@@ -285,7 +294,7 @@ public class LevelManager : MonoBehaviour
 
     public void SkipLevel()
     {
-        if (PlayerPrefs.GetInt("Undo") < 1)
+        if (PlayerPrefs.GetInt("Undo") <=0)
         {
             AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, Reward);
         }
@@ -295,6 +304,14 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") - 1);
             undotext.text = PlayerPrefs.GetInt("Undo").ToString();
             SceneManager.LoadScene(2);
+            if (PlayerPrefs.GetInt("Undo") == 0)
+            {
+                RestartVideoIcon.SetActive(true);
+            }
+            else
+            {
+                RestartVideoIcon.SetActive(false);
+            }
         }
 
         //Reward()
@@ -304,6 +321,7 @@ public class LevelManager : MonoBehaviour
     {
         PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
         PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") + 1);
+
         SceneManager.LoadScene(2);
     }
     public void OnClickUndo()
