@@ -14545,6 +14545,7 @@ MonoBehaviour:
   notificationbottle: []
   Flare: {fileID: 0}
   BgPurchasePanel: {fileID: 0}
+  RewardBottlePanel: {fileID: 0}
 --- !u!222 &2673231629057027491
 CanvasRenderer:
   m_ObjectHideFlags: 0

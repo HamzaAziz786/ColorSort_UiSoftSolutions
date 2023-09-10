@@ -221,10 +221,27 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, HintReward);
+            if (AdsController.instance.admobController.IsRewardedAdLoaded())
+            {
+                AdsController.instance.LoadingPanel.SetActive(true);
+                Invoke(nameof(HintRewardAD), 8f);
+            }
+            else
+            {
+                AdsController.instance.LoadingPanel.SetActive(true);
+                AdsController.instance.admobController.RequestRewardedAd();
+                Invoke(nameof(HintRewardAD), 8f);
+            }
+            
         }
 
     }
+
+    public void HintRewardAD()
+    {
+        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, HintReward);
+    }
+
     public void HintReward()
     {
         PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") + 1);
@@ -296,7 +313,18 @@ public class LevelManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Undo") <=0)
         {
-            AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, Reward);
+            if (AdsController.instance.admobController.IsRewardedAdLoaded())
+            {
+                AdsController.instance.LoadingPanel.SetActive(true);
+                Invoke(nameof(SkipLevelAd), 8f);
+            }
+            else
+            {
+                AdsController.instance.LoadingPanel.SetActive(true);
+                AdsController.instance.admobController.RequestRewardedAd();
+                Invoke(nameof(SkipLevelAd), 8f);
+            }
+          
         }
         else
         {
@@ -316,7 +344,10 @@ public class LevelManager : MonoBehaviour
 
         //Reward()
     }
-
+    public void SkipLevelAd()
+    {
+        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, Reward);
+    }
     public void Reward()
     {
         PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);

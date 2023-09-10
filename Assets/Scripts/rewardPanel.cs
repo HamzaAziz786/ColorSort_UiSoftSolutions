@@ -125,9 +125,23 @@ public class rewardPanel : MonoBehaviour
     }
     public void ProgressionCLaimReward()
     {
+        if (AdsController.instance.admobController.IsRewardedAdLoaded())
+        {
+            AdsController.instance.LoadingPanel.SetActive(true);
+            Invoke(nameof(ProgressionClaimREwardAd), 8f);
+        }
+        else
+        {
+            AdsController.instance.LoadingPanel.SetActive(true);
+            AdsController.instance.admobController.RequestRewardedAd();
+            Invoke(nameof(ProgressionClaimREwardAd), 8f);
+        }
+        
        
+    }
+    public void ProgressionClaimREwardAd()
+    {
         AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, ProgressionReward);
-       
     }
     public void ProgressionReward()
     {
