@@ -145,7 +145,7 @@ public class LevelManager : MonoBehaviour
     public void Tube_Hint()
     {
 
-        if (hinttextnum != 0)
+        if (PlayerPrefs.GetInt("Hints") > 0)
         {
             hintbool = false;
             for (int i = 0; i < arratlength; i++)
@@ -162,9 +162,9 @@ public class LevelManager : MonoBehaviour
                         storetube[i].gameObject.GetComponent<Animator>().Rebind();
                         storetube[i].gameObject.GetComponent<Animator>().enabled = true;
                         hintbool = true;
-                        hinttextnum--;
-                        hinttext.text = hinttextnum.ToString();
-                        ////PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") -1);
+                        //hinttextnum--;
+                        PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") - 1);
+                        hinttext.text = PlayerPrefs.GetInt("Hints").ToString();
 
                         Debug.Log("its running anim true");
                        
@@ -202,7 +202,9 @@ public class LevelManager : MonoBehaviour
     }
     public void HintReward()
     {
-        hinttextnum++;
+        PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") + 1);
+        hinttext.text = PlayerPrefs.GetInt("Hints").ToString();
+        //hinttextnum++;
     }
     public void Incremethintvalue()
     {

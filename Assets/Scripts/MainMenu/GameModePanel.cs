@@ -11,7 +11,8 @@ namespace MainMenu
         {
             int level = Random.Range(0,3);
             var levelsPanel = UIManager.Instance.LevelsPanel;
-            levelsPanel.GameMode = (GameMode)level;
+            int a = 0; 
+            levelsPanel.GameMode = (GameMode)a;
             //levelsPanel.Show();
            levelsPanel.Loadgame();
            
