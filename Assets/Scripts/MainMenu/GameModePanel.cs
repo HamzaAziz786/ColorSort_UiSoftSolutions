@@ -9,6 +9,7 @@ namespace MainMenu
 
         public void OnClickButton()
         {
+            Firebase_Analytics.Instance.LogEvent("LevelStart");
             int level = Random.Range(0,3);
             var levelsPanel = UIManager.Instance.LevelsPanel;
             int a = 0; 

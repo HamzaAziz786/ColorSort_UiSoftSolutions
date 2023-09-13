@@ -70,7 +70,7 @@ public class LevelManager : MonoBehaviour
         Level = ResourceManager.GetLevel(loadGameData.GameMode, PlayerPrefs.GetInt("level"));
 
         LoadLevel();
-       // FirebaseAnaLytics.instance.LevelsEvent("Level_", "Start_", PlayerPrefs.GetInt("level"));
+        Firebase_Analytics.Instance.LogEvent("Level_"+"Start_"+PlayerPrefs.GetInt("level"));
         CurrentState = State.Playing;
 
 

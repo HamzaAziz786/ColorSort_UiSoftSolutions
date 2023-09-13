@@ -67,7 +67,7 @@ namespace MainMenu
         public void Start()
         {
             Instance = this;
-           
+            Firebase_Analytics.Instance.LogEvent("MainMenu");
             levels.text = PlayerPrefs.GetInt("level").ToString();
             if (PlayerPrefs.GetInt("level") % 2 == 0)
             {

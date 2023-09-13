@@ -2319,6 +2319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1313786320}
   - component: {fileID: 1313786321}
+  - component: {fileID: 1313786322}
   m_Layer: 0
   m_Name: Firebasse
   m_TagString: Untagged
@@ -2359,6 +2360,19 @@ MonoBehaviour:
     defaultValue: true
   - name: show_interstitial_panels
     defaultValue: true
+--- !u!114 &1313786322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1313786319}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8909d3f1e8fea8348b7110054f8a16f4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShowDebugLogs: 1
 --- !u!1 &1351601271
 GameObject:
   m_ObjectHideFlags: 0
