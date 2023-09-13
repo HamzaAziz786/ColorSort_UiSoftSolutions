@@ -86,15 +86,15 @@ public class rewardPanel : MonoBehaviour
                 AdsController.instance.admobController.RequestRewardedAd();
                 Invoke(nameof(TimeBaseReward), 8f);
             }
-            //RewardGiftPanel.SetActive(false);
+            RewardGiftPanel.SetActive(false);
             
             CancelInvoke(nameof(Scroller));
         }
         else
         {
             GiveReward();
-           // RewardGiftPanel.SetActive(false);
-            CoongratualtionsPanel.SetActive(true);
+            RewardGiftPanel.SetActive(false);
+            //CoongratualtionsPanel.SetActive(true);
             CancelInvoke(nameof(Scroller));
         }
        
@@ -116,8 +116,8 @@ public class rewardPanel : MonoBehaviour
     {
        
             PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 200);
-        CoongratualtionsPanel.SetActive(true);
-        // RewardGiftPanel.SetActive(false);
+       // CoongratualtionsPanel.SetActive(true);
+         RewardGiftPanel.SetActive(false);
 
 
 

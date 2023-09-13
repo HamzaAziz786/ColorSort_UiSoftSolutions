@@ -467,6 +467,11 @@ public class LevelManager : MonoBehaviour
 
         PlayClipIfCan(_winClip);
         CurrentState = State.Over;
+        for (int i = 0; i < storetube.Length; i++)
+        {
+            if(storetube[i]!=null)
+                Destroy(storetube[i]);
+        }
         PlayerPrefs.SetFloat("Pregression", PlayerPrefs.GetFloat("Pregression") + 0.1f);
         RewardPanel.SetActive(true);
         ResourceManager.CompleteLevel(GameMode, Level.no);
