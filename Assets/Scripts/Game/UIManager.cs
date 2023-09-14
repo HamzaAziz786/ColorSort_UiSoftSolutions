@@ -13,7 +13,7 @@ namespace Game
         [SerializeField] private LevelCompletePanel _levelCompletePanel;
         //[SerializeField] private TutorialPanel _tutorialPanel;
         [SerializeField] private GameObject _winEffect;
-
+        public ParticleSystem C1, C2;
        
 
         //public static bool IsFirstTime
@@ -47,11 +47,15 @@ namespace Game
         private IEnumerator LevelCompletedEnumerator()
         {
            
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(.7f);
             var point = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f)).WithZ(0);
             Instantiate(_winEffect, point, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
-           // FirebaseAnaLytics.instance.LevelsEvent("Level_", "Complete_", PlayerPrefs.GetInt("level"));
+            // FirebaseAnaLytics.instance.LevelsEvent("Level_", "Complete_", PlayerPrefs.GetInt("level"));
+            C1.gameObject.SetActive(true);
+            C1.Play();
+            C1.gameObject.SetActive(true);
+            C2.Play();
             _levelCompletePanel.Show();
         }
 
