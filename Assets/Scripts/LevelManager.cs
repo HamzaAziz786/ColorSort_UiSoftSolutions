@@ -244,7 +244,7 @@ public class LevelManager : MonoBehaviour
 
     public void HintReward()
     {
-        PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") + 1);
+        PlayerPrefs.SetInt("Hints", 1);
         hinttext.text = PlayerPrefs.GetInt("Hints").ToString();
         HintVideoIcon.SetActive(false);
         //hinttextnum++;

@@ -13,7 +13,7 @@ namespace Game
         [SerializeField] private LevelCompletePanel _levelCompletePanel;
         //[SerializeField] private TutorialPanel _tutorialPanel;
         [SerializeField] private GameObject _winEffect;
-        public ParticleSystem C1, C2;
+        public ParticleSystem C1, C2,top;
        
 
         //public static bool IsFirstTime
@@ -53,8 +53,11 @@ namespace Game
             yield return new WaitForSeconds(0.5f);
             // FirebaseAnaLytics.instance.LevelsEvent("Level_", "Complete_", PlayerPrefs.GetInt("level"));
             C1.gameObject.SetActive(true);
-            C1.Play();
             C1.gameObject.SetActive(true);
+            top.gameObject.SetActive(true);
+            C1.Play();
+            top.Play();
+            
             C2.Play();
             _levelCompletePanel.Show();
         }
