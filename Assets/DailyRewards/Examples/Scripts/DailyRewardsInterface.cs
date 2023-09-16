@@ -10,7 +10,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using MainMenu;
-
+using DG.Tweening;
 namespace NiobiumStudios
 {
     /**
@@ -47,7 +47,7 @@ namespace NiobiumStudios
         private List<DailyRewardUI> dailyRewardsUI = new List<DailyRewardUI>();
 
 		private DailyRewards dailyRewards;			// DailyReward Instance      
-
+       
         void Awake()
         {
             canvas.gameObject.SetActive(false);
@@ -289,5 +289,6 @@ namespace NiobiumStudios
                 CheckTimeDifference();
             }
         }
+       
     }
 }

@@ -23,6 +23,8 @@ namespace MainMenu
         public int mins=60, hours=24;
         private ReviewManager _reviewManager;
         private PlayReviewInfo _playReviewInfo;
+        public GameObject UnlockAllBottlesObg;
+        public GameObject WatchBtn, Txt;
         public void OnClickPlay()
         {
 
@@ -295,6 +297,50 @@ namespace MainMenu
                 yield break;
             }
         }
-       
+        public void UnlockAllBottles()
+        {
+            UnlockAllBottlesObg.SetActive(true);
+
+            UnlockAllBottlesObg.transform.DOScale(1, 0.2f);
+        }
+        public void UnlockBottlesVideoBtn()
+        {
+            if (AdsController.instance.admobController.IsRewardedAdLoaded())
+            {
+                AdsController.instance.LoadingPanel.SetActive(true);
+                Invoke(nameof(Reward), 8f);
+            }
+            else
+            {
+                AdsController.instance.LoadingPanel.SetActive(true);
+                AdsController.instance.admobController.RequestRewardedAd();
+                Invoke(nameof(Reward), 8f);
+            }
+
+        }
+
+        public void Reward()
+        {
+            AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
+        }
+
+
+
+        public void GiveReward()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                PlayerPrefs.SetInt("b" + i, 1);
+            }
+
+            WatchBtn.gameObject.SetActive(false);
+            Txt.gameObject.SetActive(true);
+            //ClosePurchasePanel();
+        }
+        public void ClosePurchasePanel()
+        {
+            UnlockAllBottlesObg.SetActive(false);
+            UnlockAllBottlesObg.transform.DOScale(0, 0.4f);
+        }
     }
 }
