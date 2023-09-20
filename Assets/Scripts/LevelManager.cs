@@ -452,6 +452,7 @@ public class LevelManager : MonoBehaviour
             {
                 pendingHolder.ClearPending();
                 holder.StartPending();
+                Debug.Log("Full");
             }
         }
         else if (holder.Liquids.Any())
