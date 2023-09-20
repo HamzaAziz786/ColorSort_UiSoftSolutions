@@ -7,7 +7,7 @@ using dotmob;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-
+using Google.Play.Review;
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
@@ -55,6 +55,8 @@ public class LevelManager : MonoBehaviour
     public GameObject RewardPanel;
     public GameObject HintVideoIcon;
     public GameObject RestartVideoIcon;
+    private ReviewManager _reviewManager;
+    private PlayReviewInfo _playReviewInfo;
     private void Awake()
     {
         Instance = this;
@@ -79,8 +81,11 @@ public class LevelManager : MonoBehaviour
     {
         // MyAdmobAds_Manager.Instance.ShowSmallAdmobBanner();
         AdsController.instance.ShowAd(AdNetwork.ADMOB, 0);
-
-
+        if (PlayerPrefs.GetInt("level") > 5)
+        {
+            StartCoroutine(InitReview());
+        }
+       
 
         //AddTube = PlayerPrefs.GetInt("Tube");
         //AddHint = PlayerPrefs.GetInt("Hints");
@@ -112,6 +117,36 @@ public class LevelManager : MonoBehaviour
 
 
 
+    }
+    IEnumerator InitReview()
+    {
+        _reviewManager ??= new ReviewManager();
+        var requestFlowOperation = _reviewManager.RequestReviewFlow();
+        yield return requestFlowOperation;
+        print("Requested for Review Flow");
+        if (requestFlowOperation.Error != ReviewErrorCode.NoError)
+        {
+            yield break;
+        }
+        _playReviewInfo = requestFlowOperation.GetResult();
+        ShowReviewScreen();
+    }
+
+    public void ShowReviewScreen()
+    {
+        StartCoroutine(LaunchReview());
+    }
+
+    IEnumerator LaunchReview()
+    {
+        var launchFlowOperation = _reviewManager.LaunchReviewFlow(_playReviewInfo);
+        yield return launchFlowOperation;
+        print("Review Screen Launch");
+        _playReviewInfo = null;
+        if (launchFlowOperation.Error != ReviewErrorCode.NoError)
+        {
+            yield break;
+        }
     }
     public void LoadLevel()
     {
