@@ -27,7 +27,7 @@ public class LevelManager : MonoBehaviour
     public int addinttext ;
     public int hinttextnum ;
     public int arratlength = 0;
-    public TextMeshProUGUI addtubetext, hinttext, undotext;
+    public TextMeshProUGUI addtubetext, hinttext, undotext , Restart;
     [SerializeField] private AudioClip _winClip;
     public int comapretube = 0;
     public GameMode GameMode { get; private set; } = GameMode.Easy;
@@ -57,8 +57,10 @@ public class LevelManager : MonoBehaviour
     public GameObject RewardPanel;
     public GameObject HintVideoIcon;
     public GameObject RestartVideoIcon;
+    public GameObject undoVideoIcon;
     private ReviewManager _reviewManager;
     private PlayReviewInfo _playReviewInfo;
+    public bool IsDoUndo=false;
     private void Awake()
     {
         Instance = this;
@@ -96,6 +98,8 @@ public class LevelManager : MonoBehaviour
         addtubetext.text = PlayerPrefs.GetInt("Tube").ToString();
         hinttext.text = PlayerPrefs.GetInt("Hints").ToString();
         undotext.text = PlayerPrefs.GetInt("Undo").ToString();
+        Restart.text = PlayerPrefs.GetInt("Restart").ToString();
+        Debug.Log(PlayerPrefs.GetInt("Restart"));
         if (PlayerPrefs.GetInt("Hints")<=0)
         {
             HintVideoIcon.SetActive(true);
@@ -114,7 +118,14 @@ public class LevelManager : MonoBehaviour
             RestartVideoIcon.SetActive(false);
         }
 
-
+        if (PlayerPrefs.GetInt("Restart") <= 0)
+        {
+            undoVideoIcon.SetActive(true);
+        }
+        else
+        {
+            undoVideoIcon.SetActive(false);
+        }
 
 
 
@@ -424,7 +435,7 @@ public class LevelManager : MonoBehaviour
             }
         }
     }
-
+   
     // ReSharper disable Unity.PerformanceAnalysis
     private void OnClickHolder(Holder holder)
     {
@@ -443,6 +454,7 @@ public class LevelManager : MonoBehaviour
 
 
                 IsTransfer = true;
+                IsDoUndo = true;
                 StartCoroutine(SimpleCoroutine.CoroutineEnumerator(pendingHolder.MoveAndTransferLiquid(holder, CheckAndGameOver), () =>
                 {
 
@@ -578,6 +590,78 @@ public class LevelManager : MonoBehaviour
         public Holder ToHolder { get; set; }
         public Liquid Liquid { get; set; }
     }
+
+
+
+
+
+
+
+    public void UndoLevel()
+    {
+        if(IsDoUndo)
+        {
+            IsDoUndo = false;
+            if (PlayerPrefs.GetInt("Restart") <= 0)
+            {
+                if (AdsController.instance.admobController.IsRewardedAdLoaded())
+                {
+                    AdsController.instance.LoadingPanel.SetActive(true);
+                    Invoke(nameof(UndoSkipLevel), 8f);
+                }
+                else
+                {
+                    AdsController.instance.LoadingPanel.SetActive(true);
+                    AdsController.instance.admobController.RequestRewardedAd();
+                    Invoke(nameof(UndoSkipLevel), 8f);
+                }
+
+            }
+            else
+            {
+                PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level"));
+                PlayerPrefs.SetInt("Restart", PlayerPrefs.GetInt("Restart") - 1);
+                undotext.text = PlayerPrefs.GetInt("Undo").ToString();
+                SceneManager.LoadScene(2);
+                if (PlayerPrefs.GetInt("Restart") == 0)
+                {
+                    undoVideoIcon.SetActive(true);
+                }
+                else
+                {
+                    undoVideoIcon.SetActive(false);
+                }
+            }
+        }
+
+        //Reward()
+    }
+    public void UndoSkipLevel()
+    {
+        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, UndoReward);
+    }
+    public void UndoReward()
+    {
+        PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") );
+        PlayerPrefs.SetInt("Restart", PlayerPrefs.GetInt("Restart") + 1);
+        undoVideoIcon.SetActive(false);
+        Restart.text = PlayerPrefs.GetInt("Restart").ToString();
+        // SceneManager.LoadScene(2);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }
 
 [Serializable]
