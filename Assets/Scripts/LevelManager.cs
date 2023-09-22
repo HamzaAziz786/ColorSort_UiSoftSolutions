@@ -8,6 +8,8 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using Google.Play.Review;
+using UnityEngine.UI;
+
 public class LevelManager : MonoBehaviour
 {
     public static LevelManager Instance { get; private set; }
@@ -49,7 +51,7 @@ public class LevelManager : MonoBehaviour
     public bool hintbool;
     public Sprite[] holdersprites;
     public Sprite[] contetnsprites;
-    public SpriteRenderer CurrentBackground;
+    public Image CurrentBackground;
     public Sprite[] BakcgroundsSprites;
     public ParticleSystem confetti;
     public GameObject RewardPanel;

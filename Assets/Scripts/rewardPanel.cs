@@ -10,8 +10,8 @@ public class rewardPanel : MonoBehaviour
 {
     public List<float> positions;
     public List<int> Reward;
-   
-    int currentindex=0;
+
+    int currentindex = 0;
     public GameObject Roller;
     public TMP_Text rewardamount;
     public TMP_Text Progression;
@@ -26,17 +26,18 @@ public class rewardPanel : MonoBehaviour
     public TMP_Text ProgressionText;
     public GameObject RewardGiftPanel;
     public GameObject CoongratualtionsPanel;
+    public GameObject ClaimBtn_VideoIcon;
     private void OnEnable()
     {
         ClaimButton.transform.DOLocalMove(new Vector3(0, 0, 0), .4f).OnComplete(() => OnEnableClaimBtn());
-       
+
         InvokeRepeating(nameof(Scroller), .2f, .2f);
-        Debug.Log("h"+PlayerPrefs.GetFloat("Pregression"));
+        Debug.Log("h" + PlayerPrefs.GetFloat("Pregression"));
         //Pregression
         if (PlayerPrefs.GetFloat("Pregression") >= 1)
         {
             PlayerPrefs.SetFloat("Pregression", 0);
-            Progressioniamge.fillAmount =1;
+            Progressioniamge.fillAmount = 1;
             ProgressionRewardPanel.SetActive(true);
         }
         else
@@ -44,10 +45,20 @@ public class rewardPanel : MonoBehaviour
             currentprogression = (int)PlayerPrefs.GetFloat("Pregression");
             Progression.text = (PlayerPrefs.GetFloat("Pregression") * 100).ToString("00");
             Progressioniamge.fillAmount -= PlayerPrefs.GetFloat("Pregression");
-            
-          //  Debug.Log(PlayerPrefs.GetFloat("Pregression"));
+
+            //  Debug.Log(PlayerPrefs.GetFloat("Pregression"));
         }
-       
+        if (PlayerPrefs.GetInt("level") > 3)
+        {
+            ContinueButton.gameObject.SetActive(true);
+            ClaimBtn_VideoIcon.gameObject.SetActive(true);
+        }
+        else
+        {
+            ClaimBtn_VideoIcon.gameObject.SetActive(false);
+            ContinueButton.gameObject.SetActive(false);
+        }
+
     }
     //private void Start()
     //{
@@ -55,8 +66,8 @@ public class rewardPanel : MonoBehaviour
     //}
     public void OnEnableClaimBtn()
     {
-       // ContinueButton.transform.DOLocalMove(new Vector3(0, 0, 0), .5f).SetDelay(.2f);
-       
+        // ContinueButton.transform.DOLocalMove(new Vector3(0, 0, 0), .5f).SetDelay(.2f);
+
     }
     public void Scroller()
     {
@@ -72,7 +83,7 @@ public class rewardPanel : MonoBehaviour
 
     public void OnClickReward()
     {
-        if(PlayerPrefs.GetInt("level")>3)
+        if (PlayerPrefs.GetInt("level") > 3)
         {
 
             if (AdsController.instance.admobController.IsRewardedAdLoaded())
@@ -87,7 +98,7 @@ public class rewardPanel : MonoBehaviour
                 Invoke(nameof(TimeBaseReward), 8f);
             }
             RewardGiftPanel.SetActive(false);
-            
+
             CancelInvoke(nameof(Scroller));
         }
         else
@@ -97,7 +108,7 @@ public class rewardPanel : MonoBehaviour
             //CoongratualtionsPanel.SetActive(true);
             CancelInvoke(nameof(Scroller));
         }
-       
+
         Debug.Log(Reward[currentindex]);
     }
 
@@ -114,10 +125,10 @@ public class rewardPanel : MonoBehaviour
     }
     public void Continue()
     {
-       
-            PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 200);
-       // CoongratualtionsPanel.SetActive(true);
-         RewardGiftPanel.SetActive(false);
+
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 200);
+        // CoongratualtionsPanel.SetActive(true);
+        RewardGiftPanel.SetActive(false);
 
 
 
@@ -136,8 +147,8 @@ public class rewardPanel : MonoBehaviour
             AdsController.instance.admobController.RequestRewardedAd();
             Invoke(nameof(ProgressionClaimREwardAd), 8f);
         }
-        
-       
+
+
     }
     public void ProgressionClaimREwardAd()
     {
