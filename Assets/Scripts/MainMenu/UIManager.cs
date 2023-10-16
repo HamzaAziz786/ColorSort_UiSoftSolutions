@@ -25,15 +25,15 @@ namespace MainMenu
         private void Start()
         {
 
-            if (PlayerPrefs.GetInt("FirsttimeGameOpen") < 1)
-            {
+            //if (PlayerPrefs.GetInt("FirsttimeGameOpen") < 1)
+            //{
 
-                PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") + 4);
-                PlayerPrefs.SetInt("Tube", PlayerPrefs.GetInt("Tube") + 2);
-                PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") + 3);
-                PlayerPrefs.SetInt("Restart", PlayerPrefs.GetInt("Restart") + 4);
-                PlayerPrefs.SetInt("FirsttimeGameOpen", 1);
-            }
+            //    PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") + 4);
+            //    PlayerPrefs.SetInt("Tube", PlayerPrefs.GetInt("Tube") + 2);
+            //    PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") + 3);
+            //    PlayerPrefs.SetInt("Restart", PlayerPrefs.GetInt("Restart") + 4);
+            //    PlayerPrefs.SetInt("FirsttimeGameOpen", 1);
+            //}
         }
     }
 }
