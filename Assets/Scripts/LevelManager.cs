@@ -61,6 +61,7 @@ public class LevelManager : MonoBehaviour
     private ReviewManager _reviewManager;
     private PlayReviewInfo _playReviewInfo;
     public bool IsDoUndo=false;
+    public Text GamePlayLevelNumber;
     private void Awake()
     {
         Instance = this;
@@ -89,8 +90,8 @@ public class LevelManager : MonoBehaviour
         {
             StartCoroutine(InitReview());
         }
-       
 
+        GamePlayLevelNumber.text = "Level : "+PlayerPrefs.GetInt("level").ToString();
         //AddTube = PlayerPrefs.GetInt("Tube");
         //AddHint = PlayerPrefs.GetInt("Hints");
         //AddUndo = PlayerPrefs.GetInt("Undo");

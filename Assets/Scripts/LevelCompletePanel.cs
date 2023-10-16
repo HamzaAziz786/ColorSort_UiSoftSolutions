@@ -19,6 +19,7 @@ public class LevelCompletePanel : ShowHidable
     public GameObject bgShining;
     private ReviewManager _reviewManager;
     private PlayReviewInfo _playReviewInfo;
+  
     private void OnEnable()
     {
        
@@ -32,12 +33,12 @@ public class LevelCompletePanel : ShowHidable
     }
     public void Start()
     {
-
+       
       //  Invoke("EnableBtn",3f);
-       
-       
+
+
         //StartCoroutine(Countings());
-       
+
     }
    public void EnableBtn()
     {
@@ -73,16 +74,17 @@ public class LevelCompletePanel : ShowHidable
     public void Comp_next()
     {
         Firebase_Analytics.Instance.LogEvent("Level_" + "Comp_" + PlayerPrefs.GetInt("level"));
-        if (PlayerPrefs.GetInt("level")>5 && PlayerPrefs.GetInt("level") %2==0 /*PlayerPrefs.GetInt("level") != 3 && PlayerPrefs.GetInt("level") != 1 && PlayerPrefs.GetInt("level") != 2*/)
-        {
-            //  MyAdmobAds_Manager.Instance.ShowInterstitial();
-            AdsController.instance.ShowAd(AdNetwork.ADMOB,AdType.INTERSTITIAL);
-        }
+        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.INTERSTITIAL);
+        //if (PlayerPrefs.GetInt("level")>5 && PlayerPrefs.GetInt("level") %2==0 /*PlayerPrefs.GetInt("level") != 3 && PlayerPrefs.GetInt("level") != 1 && PlayerPrefs.GetInt("level") != 2*/)
+        //{
+        //    //  MyAdmobAds_Manager.Instance.ShowInterstitial();
+        //    AdsController.instance.ShowAd(AdNetwork.ADMOB,AdType.INTERSTITIAL);
+        //}
         //else
         //{
         //    StartCoroutine(InitReview());
         //}
-            
+
         StartCoroutine(OnClickContinue());
     }
     IEnumerator InitReview()

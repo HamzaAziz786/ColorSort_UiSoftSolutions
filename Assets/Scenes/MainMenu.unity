@@ -17519,7 +17519,7 @@ MonoBehaviour:
   optionalBool0: 0
   optionalBool1: 1
   optionalFloat0: 90
-  optionalInt0: 14
+  optionalInt0: 4
   optionalRotationMode: 0
   optionalScrambleMode: 0
   optionalString: 
@@ -72696,7 +72696,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 576da1da0256e4e469ce99a052815373, type: 3}
-  m_Type: 0
+  m_Type: 1
   m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
@@ -72704,7 +72704,7 @@ MonoBehaviour:
   m_FillClockwise: 1
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
+  m_PixelsPerUnitMultiplier: 0.51
 --- !u!222 &7748482079126334778
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -73110,7 +73110,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &7881609303988982116
 MonoBehaviour:
   m_ObjectHideFlags: 0
