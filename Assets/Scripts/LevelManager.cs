@@ -455,8 +455,8 @@ public class LevelManager : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private void OnClickHolder(Holder holder)
     {
-        if (IsTransfer)
-            return;
+        //if (IsTransfer)
+        //    return;
 
         //Debug.Log("is transfer");
 
