@@ -109,7 +109,7 @@ public class Holder : MonoBehaviour
     {
         IsPending = false;
         
-        var deliverAbsAngle = 82;
+        var deliverAbsAngle = 100;
         var deliverTopPosition = holder.transform.TransformPoint(5 * Vector3.up);
 
         

@@ -23,13 +23,15 @@ public class Splash : MonoBehaviour
     }
     private void Start()
     {
+        Firebase_Analytics.Instance.LogEvent("Splash_Screen");
+
         if (PlayerPrefs.GetInt("FirsttimeGameOpen") < 1)
         {
 
-            PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") + 4);
+            PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") + 3);
             PlayerPrefs.SetInt("Tube", PlayerPrefs.GetInt("Tube") + 2);
-            PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") + 3);
-            PlayerPrefs.SetInt("Restart", PlayerPrefs.GetInt("Restart") + 4);
+            PlayerPrefs.SetInt("Hints", PlayerPrefs.GetInt("Hints") + 2);
+            PlayerPrefs.SetInt("Restart", PlayerPrefs.GetInt("Restart") + 2);
             PlayerPrefs.SetInt("FirsttimeGameOpen", 1);
         }
 

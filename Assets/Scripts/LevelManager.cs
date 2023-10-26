@@ -9,6 +9,7 @@ using TMPro;
 using UnityEngine.SceneManagement;
 
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class LevelManager : MonoBehaviour
 {
@@ -87,8 +88,8 @@ public class LevelManager : MonoBehaviour
             int randoms = UnityEngine.Random.Range(0, 90);
             Level = ResourceManager.GetLevel(loadGameData.GameMode, randoms);
         }
-        
 
+        Firebase_Analytics.Instance.LogEvent("Level_Start:" + PlayerPrefs.GetInt("level"));
         LoadLevel();
        
         CurrentState = State.Playing;
@@ -293,7 +294,7 @@ public class LevelManager : MonoBehaviour
             }
 
         }
-
+        Firebase_Analytics.Instance.LogEvent("Hint_Level_Powerup");
     }
 
     public void HintRewardAD()
@@ -370,6 +371,7 @@ public class LevelManager : MonoBehaviour
 
     public void SkipLevel()
     {
+       
         if (PlayerPrefs.GetInt("Undo") <=0)
         {
 
@@ -400,7 +402,7 @@ public class LevelManager : MonoBehaviour
                 RestartVideoIcon.SetActive(false);
             }
         }
-
+        Firebase_Analytics.Instance.LogEvent("Skip_Level_Powerup");
         //Reward()
     }
     public void SkipLevelAd()
@@ -472,6 +474,15 @@ public class LevelManager : MonoBehaviour
                     IsTransfer = false;
 
                 }));
+                holder.transform.DOScale(1.6f, 0.6f).SetEase(Ease.Linear).SetDelay(.3f);
+                holder.transform.DOScale(1.4f, 01f).SetEase(Ease.Linear).SetDelay(.8f);
+                //if (holder.TopLiquid != null ||
+                //(pendingHolder.TopLiquid.GroupId == holder.TopLiquid.GroupId && holder.IsFull))
+                //{
+                //    Debug.Log("Now FUll");
+                //    holder.transform.DOScale(1.5f, 0.3f).SetEase(Ease.InOutBounce).SetDelay(.3f);
+                //    holder.transform.DOScale(1, 0.3f).SetEase(Ease.InOutBounce).SetDelay(.5f);
+               // }
             }
             else
             {
@@ -546,6 +557,7 @@ public class LevelManager : MonoBehaviour
         StartCoroutine(nameof(RewardSounds));
         RewardPanel.SetActive(true);
         ResourceManager.CompleteLevel(GameMode, Level.no);
+        Firebase_Analytics.Instance.LogEvent("Level_Complete:" + PlayerPrefs.GetInt("level"));
         LevelCompleted?.Invoke();
     }
     IEnumerator RewardSounds()
@@ -663,7 +675,7 @@ public class LevelManager : MonoBehaviour
                 }
             }
         }
-
+        Firebase_Analytics.Instance.LogEvent("Undo_Level_Powerup");
         //Reward()
     }
     public void UndoSkipLevel()
