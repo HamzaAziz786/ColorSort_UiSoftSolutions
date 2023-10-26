@@ -3,27 +3,20 @@
     {
       "no": 1,
       "map": [
-        { "values": [1, 1, 1, 2] },
-        { "values": [1, 0, 2, 0] },
-        { "values": [2, 2] },
-        { "values": [0, 0] },
-{ "values": [] },
-{ "values": [] },
-{ "values": [] },
-{ "values": [] }
+        { "values": [1, 1, 1] },
+        { "values": [1] }
+       
+        
       ]
     },
     {
       "no": 2,
       "map": [
- {"values":[5,5,5,0]},
-{"values":[2,2,2]},
-{"values":[5,2,4,1]},
-{"values":[4,4,1,1]},
-{"values":[0,0,0]},
-{"values":[4,1]},
-{"values":[]},
-{"values":[]}
+ 	{ "values": [1, 1, 1] },
+        { "values": [2,1,2,2] },
+	{"values":[]}
+       
+        
       ]
     },
     {

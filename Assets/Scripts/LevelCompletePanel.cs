@@ -7,7 +7,7 @@ using UnityEngine.UI;
 using TMPro;
 using System;
 using DG.Tweening;
-using Google.Play.Review;
+
 
 public class LevelCompletePanel : ShowHidable
 {
@@ -17,8 +17,7 @@ public class LevelCompletePanel : ShowHidable
     //public GameObject collect;
     public GameObject loading;
     public GameObject bgShining;
-    private ReviewManager _reviewManager;
-    private PlayReviewInfo _playReviewInfo;
+    public ParticleSystem[] Complete_p;
   
     private void OnEnable()
     {
@@ -52,7 +51,7 @@ public class LevelCompletePanel : ShowHidable
         base.OnShowCompleted();
         //_toastTxt.text = _toasts.GetRandom();
         //_toastTxt.gameObject.SetActive(true);
-        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 50);
+       
        
     }
     public void OnCoinsClick()
@@ -64,7 +63,7 @@ public class LevelCompletePanel : ShowHidable
     public IEnumerator OnClickContinue()
     {
         loading.SetActive(true);
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.2f);
         loading.SetActive(false);
         UIManager.Instance.LoadNextLevel();
        
@@ -73,50 +72,25 @@ public class LevelCompletePanel : ShowHidable
 
     public void Comp_next()
     {
-        Firebase_Analytics.Instance.LogEvent("Level_" + "Comp_" + PlayerPrefs.GetInt("level"));
+
         //AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.INTERSTITIAL);
-        if (PlayerPrefs.GetInt("level") >=3 /*&& PlayerPrefs.GetInt("level") % 2 == 0*/ /*PlayerPrefs.GetInt("level") != 3 && PlayerPrefs.GetInt("level") != 1 && PlayerPrefs.GetInt("level") != 2*/)
+        foreach (var item in Complete_p)
         {
-            //  MyAdmobAds_Manager.Instance.ShowInterstitial();
-            AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.INTERSTITIAL);
+            item.Stop();
         }
-        else
+        
+        if (PlayerPrefs.GetInt("level") >=3 && PlayerPrefs.GetInt("level")%2==0 /*&& PlayerPrefs.GetInt("level") % 2 == 0*/ /*PlayerPrefs.GetInt("level") != 3 && PlayerPrefs.GetInt("level") != 1 && PlayerPrefs.GetInt("level") != 2*/)
         {
-            StartCoroutine(InitReview());
+            AdsController.instance.ShowAd(AdType.INTERSTITIAL);
+           
         }
+       
 
         StartCoroutine(OnClickContinue());
     }
-    IEnumerator InitReview()
-    {
-        _reviewManager ??= new ReviewManager();
-        var requestFlowOperation = _reviewManager.RequestReviewFlow();
-        yield return requestFlowOperation;
-        print("Requested for Review Flow");
-        if (requestFlowOperation.Error != ReviewErrorCode.NoError)
-        {
-            yield break;
-        }
-        _playReviewInfo = requestFlowOperation.GetResult();
-        ShowReviewScreen();
-    }
+   
 
-    public void ShowReviewScreen()
-    {
-        StartCoroutine(LaunchReview());
-    }
-
-    IEnumerator LaunchReview()
-    {
-        var launchFlowOperation = _reviewManager.LaunchReviewFlow(_playReviewInfo);
-        yield return launchFlowOperation;
-        print("Review Screen Launch");
-        _playReviewInfo = null;
-        if (launchFlowOperation.Error != ReviewErrorCode.NoError)
-        {
-            yield break;
-        }
-    }
+  
     public void OnClickMainMenu()
     {
         GameManager.LoadScene("MainMenu");

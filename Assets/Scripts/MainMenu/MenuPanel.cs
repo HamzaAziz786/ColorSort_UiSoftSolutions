@@ -3,9 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine.UI;
 using TMPro;
-using NiobiumStudios;
+
 using DG.Tweening;
-using Google.Play.Review;
+
 
 namespace MainMenu
 {
@@ -21,8 +21,7 @@ namespace MainMenu
         public static MenuPanel Instance;
         public float sec = 60f;
         public int mins=60, hours=24;
-        private ReviewManager _reviewManager;
-        private PlayReviewInfo _playReviewInfo;
+       
         public GameObject UnlockAllBottlesObg;
         public GameObject WatchBtn, Txt;
         public void OnClickPlay()
@@ -69,7 +68,7 @@ namespace MainMenu
         public void Start()
         {
             Instance = this;
-            Firebase_Analytics.Instance.LogEvent("MainMenu");
+          
             levels.text = PlayerPrefs.GetInt("level").ToString();
             //if (PlayerPrefs.GetInt("level") % 2 == 0)
             //{
@@ -146,52 +145,52 @@ namespace MainMenu
         }
         public void Buy_PremiumPackage()
         {
-            Purchaser.instance.PremiumPackage();
+            ////Purchaser.instance.PremiumPackage();
             UpdateText();
         }
         public void Buy_LegendaryPackage()
         {
-            Purchaser.instance.LegendaryPackage();
+            ////Purchaser.instance.LegendaryPackage();
             UpdateText();
         }
         public void Buy_GiantPackage()
         {
-            Purchaser.instance.GiantPackage();
+            //Purchaser.instance.GiantPackage();
             UpdateText();
         }
         public void Buy_MasterPackage()
         {
-            Purchaser.instance.MasterBundle();
+            //Purchaser.instance.MasterBundle();
             UpdateText();
         }
         public void Buy_SuperPackage()
         {
-            Purchaser.instance.SuperBundle();
+            //Purchaser.instance.SuperBundle();
             UpdateText();
         }
         public void Buy_DiamondFirstPacakge()
         {
-            Purchaser.instance.Diamonds_1st();
+            //Purchaser.instance.Diamonds_1st();
             UpdateText();
         }
         public void Buy_DiamondSecondPacakge()
         {
-            Purchaser.instance.Diamonds_2nd();
+            //Purchaser.instance.Diamonds_2nd();
             UpdateText();
         }
         public void Buy_DiamondThirdPackage()
         {
-            Purchaser.instance.Diamonds_3rd();
+            //Purchaser.instance.Diamonds_3rd();
             UpdateText();
         }
         public void Buy_DiamondFourthPackage()
         {
-            Purchaser.instance.Diamonds_4th();
+            //Purchaser.instance.Diamonds_4th();
             UpdateText();
         }
         public void Buy_DiamondFiFthPackage()
         {
-            Purchaser.instance.Diamonds_5th();
+            //Purchaser.instance.Diamonds_5th();
             UpdateText();
         }
         
@@ -266,37 +265,8 @@ namespace MainMenu
 
 
 
-       
-        IEnumerator InitReview()
-        {
-            _reviewManager ??= new ReviewManager();
-            var requestFlowOperation = _reviewManager.RequestReviewFlow();
-            yield return requestFlowOperation;
-            print("Requested for Review Flow");
-            if (requestFlowOperation.Error != ReviewErrorCode.NoError)
-            {
-                yield break;
-            }
-            _playReviewInfo = requestFlowOperation.GetResult();
-            ShowReviewScreen();
-        }
+      
 
-        public void ShowReviewScreen()
-        {
-            StartCoroutine(LaunchReview());
-        }
-
-        IEnumerator LaunchReview()
-        {
-            var launchFlowOperation = _reviewManager.LaunchReviewFlow(_playReviewInfo);
-            yield return launchFlowOperation;
-            print("Review Screen Launch");
-            _playReviewInfo = null;
-            if (launchFlowOperation.Error != ReviewErrorCode.NoError)
-            {
-                yield break;
-            }
-        }
         public void UnlockAllBottles()
         {
             UnlockAllBottlesObg.SetActive(true);
@@ -305,23 +275,13 @@ namespace MainMenu
         }
         public void UnlockBottlesVideoBtn()
         {
-            if (AdsController.instance.admobController.IsRewardedAdLoaded())
-            {
-                AdsController.instance.LoadingPanel.SetActive(true);
-                Invoke(nameof(Reward), 8f);
-            }
-            else
-            {
-                AdsController.instance.LoadingPanel.SetActive(true);
-                AdsController.instance.admobController.RequestRewardedAd();
-                Invoke(nameof(Reward), 8f);
-            }
+            
 
         }
 
         public void Reward()
         {
-            AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
+           
         }
 
 

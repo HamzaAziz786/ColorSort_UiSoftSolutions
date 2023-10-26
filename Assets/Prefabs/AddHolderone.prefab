@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 1477960287825307862}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.008, y: 2.0349, z: 0}
-  m_LocalScale: {x: 0.9719887, y: 1.0864127, z: 0.88042194}
+  m_LocalScale: {x: 1.30645, y: 1.4602473, z: 1.1833751}
   m_Children:
   - {fileID: 743244721728253433}
   m_Father: {fileID: 7993208533526805399}
@@ -72,8 +72,8 @@ SpriteMask:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: fdfef5eb3188ebe4898f092a33bfde0e, type: 3}
-  m_MaskAlphaCutoff: 0.039
+  m_Sprite: {fileID: 21300000, guid: eaf07c8bee09e08408c71c8979933ab1, type: 3}
+  m_MaskAlphaCutoff: 0.008
   m_FrontSortingLayerID: 0
   m_BackSortingLayerID: 0
   m_FrontSortingLayer: 0
@@ -267,7 +267,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 32767
-  m_Sprite: {fileID: 21300000, guid: 57f1b39bf41bd1b4fb74a56378e3e6f8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: eaf07c8bee09e08408c71c8979933ab1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -360,6 +360,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9423e7e36080cdb4f99de15414223f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Top: {fileID: 0}
   _maxValue: 4
   _ballRadius: 0.45
   _popClip: {fileID: 8300000, guid: 52d2f1189602984458b7e3547f16c822, type: 3}
@@ -768,7 +769,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2333558819211828924, guid: 6807fd30fd5146f4e9af15501ec25da0, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2481221770313459504, guid: 6807fd30fd5146f4e9af15501ec25da0, type: 3}
       propertyPath: m_IsActive

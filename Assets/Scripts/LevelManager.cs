@@ -7,7 +7,7 @@ using dotmob;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using Google.Play.Review;
+
 using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
@@ -53,44 +53,57 @@ public class LevelManager : MonoBehaviour
     public Sprite[] contetnsprites;
     public Image CurrentBackground;
     public Sprite[] BakcgroundsSprites;
-    public ParticleSystem confetti;
+    
     public GameObject RewardPanel;
     public GameObject HintVideoIcon;
     public GameObject RestartVideoIcon;
     public GameObject undoVideoIcon;
-    private ReviewManager _reviewManager;
-    private PlayReviewInfo _playReviewInfo;
+   
     public bool IsDoUndo=false;
     public Text GamePlayLevelNumber;
+    public int HolderSpriteNo;
+    public AudioSource Winnignsound;
+    public AudioClip[] clips_win;
+    public GameObject[] bottombuttons;
     private void Awake()
     {
         Instance = this;
         var loadGameData = GameManager.LoadGameData;
         GameMode = loadGameData.GameMode;
-        CurrentBackground.sprite = BakcgroundsSprites[StoreScript.selectwallPapernumber];
+       // CurrentBackground.sprite = BakcgroundsSprites[StoreScript.selectwallPapernumber];
         //Level = loadGameData.Level;
         if (PlayerPrefs.GetInt("levellock") == 0)
         {
             PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
             PlayerPrefs.SetInt("levellock", 1);
         }
-        Level = ResourceManager.GetLevel(loadGameData.GameMode, PlayerPrefs.GetInt("level"));
+        
+        if (PlayerPrefs.GetInt("level") <= 100)
+        {
+            Level = ResourceManager.GetLevel(loadGameData.GameMode, PlayerPrefs.GetInt("level"));
+        }
+        else
+        {
+            int randoms = UnityEngine.Random.Range(0, 90);
+            Level = ResourceManager.GetLevel(loadGameData.GameMode, randoms);
+        }
+        
 
         LoadLevel();
-        Firebase_Analytics.Instance.LogEvent("Level_"+"Start_"+PlayerPrefs.GetInt("level"));
+       
         CurrentState = State.Playing;
 
 
     }
+    public void ClickSound()
+    {
+        Winnignsound.PlayOneShot(clips_win[4]);
+    }
     private void Start()
     {
         // MyAdmobAds_Manager.Instance.ShowSmallAdmobBanner();
-        AdsController.instance.ShowAd(AdNetwork.ADMOB, 0);
-        if (PlayerPrefs.GetInt("level") > 5)
-        {
-            StartCoroutine(InitReview());
-        }
 
+        AdsController.instance.ShowAd(AdType.BANNER, 0);
         GamePlayLevelNumber.text = "Level : "+PlayerPrefs.GetInt("level").ToString();
         //AddTube = PlayerPrefs.GetInt("Tube");
         //AddHint = PlayerPrefs.GetInt("Hints");
@@ -132,39 +145,33 @@ public class LevelManager : MonoBehaviour
 
 
     }
-    IEnumerator InitReview()
-    {
-        _reviewManager ??= new ReviewManager();
-        var requestFlowOperation = _reviewManager.RequestReviewFlow();
-        yield return requestFlowOperation;
-        print("Requested for Review Flow");
-        if (requestFlowOperation.Error != ReviewErrorCode.NoError)
-        {
-            yield break;
-        }
-        _playReviewInfo = requestFlowOperation.GetResult();
-        ShowReviewScreen();
-    }
+   
 
-    public void ShowReviewScreen()
-    {
-        StartCoroutine(LaunchReview());
-    }
+   
 
-    IEnumerator LaunchReview()
-    {
-        var launchFlowOperation = _reviewManager.LaunchReviewFlow(_playReviewInfo);
-        yield return launchFlowOperation;
-        print("Review Screen Launch");
-        _playReviewInfo = null;
-        if (launchFlowOperation.Error != ReviewErrorCode.NoError)
-        {
-            yield break;
-        }
-    }
+  
     public void LoadLevel()
     {
 
+        //if (PlayerPrefs.GetInt("level") <= 10)
+        //    HolderSpriteNo = 2;
+        //else
+        //    HolderSpriteNo = 5 ;
+        HolderSpriteNo = UnityEngine.Random.Range(0, holdersprites.Length);
+        if (PlayerPrefs.GetInt("level")<3)
+        {
+            foreach (var item in bottombuttons)
+            {
+                item.SetActive(false);
+            }
+        }
+        else if (PlayerPrefs.GetInt("level") >=3)
+        {
+            foreach (var item in bottombuttons)
+            {
+                item.SetActive(true);
+            }
+        }
         if (PlayerPrefs.GetInt("level") % 2 == 0)
         {
 
@@ -179,18 +186,21 @@ public class LevelManager : MonoBehaviour
             arratlength = 4;
             _camera.transform.position = new Vector3(0f, 3f, -10f);
         }
-
+        
+       
         var list = PositionsForHolders(Level.map.Count, out var width).ToList();
         _camera.orthographicSize = 0.5f * width * Screen.height / Screen.width;
 
         var levelMap = Level.LiquidDataMap;
+        
         for (var i = 0; i < levelMap.Count; i++)
         {
             var levelColumn = levelMap[i];
             var holder = Instantiate(_holderPrefab, list[i], Quaternion.identity);
-            holder.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = holdersprites[StoreScript.selectbottlenumber];
-            holder.transform.GetChild(2).GetComponent<SpriteMask>().sprite = contetnsprites[StoreScript.selectbottlenumber];
-            storetube[addtubenum] = holder.gameObject;
+            holder.transform.GetChild(1).GetComponent<SpriteRenderer>().sprite = holdersprites[HolderSpriteNo];
+            holder.transform.GetChild(2).GetComponent<SpriteMask>().sprite = contetnsprites[HolderSpriteNo];
+           
+              storetube[addtubenum] = holder.gameObject;
             if (addtubenum > 4 && AddTube == 4)
             {
 
@@ -219,7 +229,7 @@ public class LevelManager : MonoBehaviour
 
                 if (storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid != null && i != comapretube && storetube[i].gameObject.GetComponent<Holder>().TopLiquid != null)
                 {
-                    // Debug.Log("its running top liquid"+  i);
+                    //    // Debug.Log("its running top liquid"+  i);
                     // Debug.Log("its running top liquid");
                     if (storetube[comapretube].gameObject.GetComponent<Holder>().TopLiquid.GroupId == storetube[i].gameObject.GetComponent<Holder>().TopLiquid.GroupId && !storetube[i].gameObject.GetComponent<Holder>().IsFull)
                     {
@@ -281,7 +291,7 @@ public class LevelManager : MonoBehaviour
                 AdsController.instance.admobController.RequestRewardedAd();
                 Invoke(nameof(HintRewardAD), 8f);
             }
-            
+
         }
 
     }
@@ -362,6 +372,7 @@ public class LevelManager : MonoBehaviour
     {
         if (PlayerPrefs.GetInt("Undo") <=0)
         {
+
             if (AdsController.instance.admobController.IsRewardedAdLoaded())
             {
                 AdsController.instance.LoadingPanel.SetActive(true);
@@ -373,14 +384,13 @@ public class LevelManager : MonoBehaviour
                 AdsController.instance.admobController.RequestRewardedAd();
                 Invoke(nameof(SkipLevelAd), 8f);
             }
-          
         }
         else
         {
             PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
             PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") - 1);
             undotext.text = PlayerPrefs.GetInt("Undo").ToString();
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
             if (PlayerPrefs.GetInt("Undo") == 0)
             {
                 RestartVideoIcon.SetActive(true);
@@ -402,7 +412,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
         PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") + 1);
 
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
     public void OnClickUndo()
     {
@@ -468,6 +478,9 @@ public class LevelManager : MonoBehaviour
                 pendingHolder.ClearPending();
                 holder.StartPending();
                 Debug.Log("Full");
+
+                
+                //holder.GetComponent<BoxCollider>().isTrigger = true;
             }
         }
         else if (holder.Liquids.Any())
@@ -515,20 +528,36 @@ public class LevelManager : MonoBehaviour
     {
         if (CurrentState != State.Playing)
             return;
-
+        PlayerPrefs.SetInt("Coins", PlayerPrefs.GetInt("Coins") + 20);
+        GamePlayPanel.instance.Coins.text = PlayerPrefs.GetInt("Coins").ToString();
+        Debug.Log("Coins" + PlayerPrefs.GetInt("Coins").ToString());
         PlayClipIfCan(_winClip);
         CurrentState = State.Over;
         for (int i = 0; i < storetube.Length; i++)
         {
-            if(storetube[i]!=null)
-                Destroy(storetube[i]);
+            if (storetube[i] != null)
+            {
+                //Destroy(storetube[i]);
+                storetube[i].gameObject.SetActive(false);
+            }
+               
         }
         PlayerPrefs.SetFloat("Pregression", PlayerPrefs.GetFloat("Pregression") + 0.1f);
+        StartCoroutine(nameof(RewardSounds));
         RewardPanel.SetActive(true);
         ResourceManager.CompleteLevel(GameMode, Level.no);
         LevelCompleted?.Invoke();
     }
-
+    IEnumerator RewardSounds()
+    {
+        Winnignsound.PlayOneShot(clips_win[3]);
+        yield return new WaitForSeconds(.2f);
+        Winnignsound.PlayOneShot(clips_win[0]);
+        yield return new WaitForSeconds(.3f);
+        Winnignsound.PlayOneShot(clips_win[1]);
+        yield return new WaitForSeconds(.6f);
+        Winnignsound.PlayOneShot(clips_win[2]);
+    }
     private void PlayClipIfCan(AudioClip clip, float volume = 0.35f)
     {
         if (!AudioManager.IsSoundEnable || clip == null)
@@ -623,7 +652,7 @@ public class LevelManager : MonoBehaviour
                 PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level"));
                 PlayerPrefs.SetInt("Restart", PlayerPrefs.GetInt("Restart") - 1);
                 undotext.text = PlayerPrefs.GetInt("Undo").ToString();
-                SceneManager.LoadScene(2);
+                SceneManager.LoadScene(1);
                 if (PlayerPrefs.GetInt("Restart") == 0)
                 {
                     undoVideoIcon.SetActive(true);
@@ -647,7 +676,7 @@ public class LevelManager : MonoBehaviour
         PlayerPrefs.SetInt("Restart", PlayerPrefs.GetInt("Restart") + 1);
         undoVideoIcon.SetActive(false);
         Restart.text = PlayerPrefs.GetInt("Restart").ToString();
-        // SceneManager.LoadScene(2);
+        SceneManager.LoadScene(1);
     }
 
 

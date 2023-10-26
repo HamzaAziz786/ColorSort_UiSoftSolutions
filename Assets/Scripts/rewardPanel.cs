@@ -86,17 +86,17 @@ public class rewardPanel : MonoBehaviour
         if (PlayerPrefs.GetInt("level") > 3)
         {
 
-            if (AdsController.instance.admobController.IsRewardedAdLoaded())
-            {
-                AdsController.instance.LoadingPanel.SetActive(true);
-                Invoke(nameof(TimeBaseReward), 8f);
-            }
-            else
-            {
-                AdsController.instance.LoadingPanel.SetActive(true);
-                AdsController.instance.admobController.RequestRewardedAd();
-                Invoke(nameof(TimeBaseReward), 8f);
-            }
+            //if (AdsController.instance.admobController.IsRewardedAdLoaded())
+            //{
+            //    AdsController.instance.LoadingPanel.SetActive(true);
+            //    Invoke(nameof(TimeBaseReward), 8f);
+            //}
+            //else
+            //{
+            //    AdsController.instance.LoadingPanel.SetActive(true);
+            //    AdsController.instance.admobController.RequestRewardedAd();
+            //    Invoke(nameof(TimeBaseReward), 8f);
+            //}
             RewardGiftPanel.SetActive(false);
 
             CancelInvoke(nameof(Scroller));
@@ -114,7 +114,7 @@ public class rewardPanel : MonoBehaviour
 
     public void TimeBaseReward()
     {
-        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
+        //AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, GiveReward);
     }
 
     public void GiveReward()
@@ -136,23 +136,23 @@ public class rewardPanel : MonoBehaviour
     }
     public void ProgressionCLaimReward()
     {
-        if (AdsController.instance.admobController.IsRewardedAdLoaded())
-        {
-            AdsController.instance.LoadingPanel.SetActive(true);
-            Invoke(nameof(ProgressionClaimREwardAd), 8f);
-        }
-        else
-        {
-            AdsController.instance.LoadingPanel.SetActive(true);
-            AdsController.instance.admobController.RequestRewardedAd();
-            Invoke(nameof(ProgressionClaimREwardAd), 8f);
-        }
+        //if (AdsController.instance.admobController.IsRewardedAdLoaded())
+        //{
+        //    AdsController.instance.LoadingPanel.SetActive(true);
+        //    Invoke(nameof(ProgressionClaimREwardAd), 8f);
+        //}
+        //else
+        //{
+        //    AdsController.instance.LoadingPanel.SetActive(true);
+        //    AdsController.instance.admobController.RequestRewardedAd();
+        //    Invoke(nameof(ProgressionClaimREwardAd), 8f);
+        //}
 
 
     }
     public void ProgressionClaimREwardAd()
     {
-        AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, ProgressionReward);
+        //AdsController.instance.ShowAd(AdNetwork.ADMOB, AdType.REWARDED, ProgressionReward);
     }
     public void ProgressionReward()
     {

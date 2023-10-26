@@ -51,32 +51,32 @@ public class ShowHidable : MonoBehaviour, IShowHideable
     // ReSharper disable once FlagArgument
     public virtual void Show(bool animate = true, Action completed = null)
     {
-        if (Showing)
-            throw new InvalidOperationException();
+        //if (Showing)
+        //    throw new InvalidOperationException();
 
-        CurrentShowState = ShowState.ShowAnimation;
+        //CurrentShowState = ShowState.ShowAnimation;
 
-        if (animate && anim != null)
-        {
-            anim.Play(SHOW_HASH);
+        //if (animate && anim != null)
+        //{
+        //    anim.Play(SHOW_HASH);
             
-            SimpleCoroutine.Create(gameObject).WaitUntil(() =>
-            {
-                var stateInfo = anim.GetCurrentAnimatorStateInfo(0);
-                return stateInfo.shortNameHash == SHOW_HASH && stateInfo.normalizedTime >= 0.99f;
-            }, () =>
-            {
-                CurrentShowState = ShowState.Show;
-                OnShowCompleted();
-                completed?.Invoke();
-            });
-        }
-        else
-        {
-            CurrentShowState = ShowState.Show;
-            OnShowCompleted();
-            completed?.Invoke();
-        }
+        //    SimpleCoroutine.Create(gameObject).WaitUntil(() =>
+        //    {
+        //        var stateInfo = anim.GetCurrentAnimatorStateInfo(0);
+        //        return stateInfo.shortNameHash == SHOW_HASH && stateInfo.normalizedTime >= 0.99f;
+        //    }, () =>
+        //    {
+        //        CurrentShowState = ShowState.Show;
+        //        OnShowCompleted();
+        //        completed?.Invoke();
+        //    });
+        //}
+        //else
+        //{
+        //    CurrentShowState = ShowState.Show;
+        //    OnShowCompleted();
+        //    completed?.Invoke();
+        //}
 
     }
 

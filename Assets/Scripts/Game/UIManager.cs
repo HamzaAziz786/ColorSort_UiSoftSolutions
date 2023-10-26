@@ -49,7 +49,7 @@ namespace Game
            
             yield return new WaitForSeconds(.7f);
             var point = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width / 2f, Screen.height / 2f)).WithZ(0);
-            Instantiate(_winEffect, point, Quaternion.identity);
+           // Instantiate(_winEffect, point, Quaternion.identity);
             yield return new WaitForSeconds(0.5f);
             // FirebaseAnaLytics.instance.LevelsEvent("Level_", "Complete_", PlayerPrefs.GetInt("level"));
             C1.gameObject.SetActive(true);

@@ -52,16 +52,16 @@ MonoBehaviour:
   _unitSize: 0.8
   _groupColors:
   - {r: 0, g: 0.033434555, b: 0.8867924, a: 1}
-  - {r: 1, g: 0.73921037, b: 0, a: 1}
-  - {r: 1, g: 0.39810428, b: 0, a: 1}
-  - {r: 0, g: 0.6039219, b: 1, a: 1}
-  - {r: 0.107266046, g: 0.8962264, b: 0.06256672, a: 1}
-  - {r: 1, g: 0.09667046, b: 0, a: 1}
-  - {r: 0.051397298, g: 0.1981132, b: 0.1307965, a: 1}
-  - {r: 0.41509432, g: 0.21863572, b: 0.0763617, a: 1}
-  - {r: 0.704762, g: 0, b: 1, a: 1}
-  - {r: 1, g: 0, b: 0.4848485, a: 1}
-  - {r: 0.38679248, g: 0.38679248, b: 0.38679248, a: 1}
+  - {r: 0.9150943, g: 0.67465776, b: 0, a: 1}
+  - {r: 1, g: 0.32082552, b: 0, a: 1}
+  - {r: 0.021493427, g: 0.40163204, b: 0.6509434, a: 1}
+  - {r: 0.03897595, g: 0.754717, b: 0, a: 1}
+  - {r: 0.7924528, g: 0.07769146, b: 0, a: 1}
+  - {r: 0, g: 0.2264151, b: 0.119165875, a: 1}
+  - {r: 0.3018868, g: 0.12838864, b: 0, a: 1}
+  - {r: 0.4994452, g: 0, b: 0.7075472, a: 1}
+  - {r: 0.6792453, g: 0, b: 0.33029982, a: 1}
+  - {r: 0.18867922, g: 0.18867922, b: 0.18867922, a: 1}
 --- !u!1 &2481221770313459504
 GameObject:
   m_ObjectHideFlags: 0
@@ -132,7 +132,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 32766
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: b8484c2d10e500545a28ea6c884e1fd3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -214,7 +214,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 32766
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 9ec6412b336be45f69c47b2b17e4a69e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

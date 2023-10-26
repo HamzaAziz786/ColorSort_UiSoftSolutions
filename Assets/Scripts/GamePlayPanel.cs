@@ -10,12 +10,12 @@ public class GamePlayPanel : ShowHidable
 {
     [SerializeField] private Text _lvlTxt;
     [SerializeField] private Text txtTutorial;
-    [SerializeField] private Text Coins;
-        
+    public Text Coins;
+    public static GamePlayPanel instance;
     private void Start()
     {
+        instance = this;
         _lvlTxt.text = $" LEVEL {LevelManager.Instance.Level.no}";
-
         //if(LevelManager.Instance.Level.no == 1)
         //{
         //    txtTutorial.gameObject.SetActive(true);

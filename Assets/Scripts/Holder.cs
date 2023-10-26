@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class Holder : MonoBehaviour
 {
+    public Sprite Top;
     [SerializeField] private int _maxValue = 4;
     [SerializeField] private float _ballRadius;
  
@@ -114,8 +115,9 @@ public class Holder : MonoBehaviour
         
         if(holder.IsFull || !_liquids.Any() || holder.Liquids.Any() && holder.Liquids.Last().GroupId != Liquids.Last().GroupId)
         {
-            LevelManager.Instance.confetti.gameObject.SetActive(true);
-            LevelManager.Instance.confetti.Play();
+            //LevelManager.Instance.confetti.gameObject.SetActive(true);
+            //LevelManager.Instance.confetti.Play();
+         
             yield break;
         }
 
@@ -157,7 +159,7 @@ public class Holder : MonoBehaviour
         _liquidLine.transform.position = sidePoint.position;
         _liquidLine.gameObject.SetActive(true);
         _liquidLine.transform.localScale =
-            _liquidLine.transform.localScale.WithY((sidePoint.transform.position.y-2f) - holder.transform.position.y);
+            _liquidLine.transform.localScale.WithY((sidePoint.transform.position.y-3f) - holder.transform.position.y);
         _liquidLine.color = thisLiquid.Renderer.color;
         _liquidLine.transform.rotation = Quaternion.identity;
         _audio.clip = _liquidTransferClip;
