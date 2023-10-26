@@ -27,7 +27,7 @@ public class LevelCompletePanel : ShowHidable
 
     private void Awake()
     {
-        _levelTxt.text = LevelManager.Instance.Level.no.ToString();
+        _levelTxt.text = PlayerPrefs.GetInt("level").ToString();
         
     }
     public void Start()
