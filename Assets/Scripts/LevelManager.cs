@@ -452,8 +452,8 @@ public class LevelManager : MonoBehaviour
     // ReSharper disable Unity.PerformanceAnalysis
     private void OnClickHolder(Holder holder)
     {
-        //if (IsTransfer)
-        //    return;
+        if (IsTransfer)
+            return;
 
         //Debug.Log("is transfer");
 
@@ -472,17 +472,12 @@ public class LevelManager : MonoBehaviour
                 {
 
                     IsTransfer = false;
-
+                    
                 }));
                 holder.transform.DOScale(1.6f, 0.6f).SetEase(Ease.Linear).SetDelay(.3f);
                 holder.transform.DOScale(1.4f, 01f).SetEase(Ease.Linear).SetDelay(.8f);
-                //if (holder.TopLiquid != null ||
-                //(pendingHolder.TopLiquid.GroupId == holder.TopLiquid.GroupId && holder.IsFull))
-                //{
-                //    Debug.Log("Now FUll");
-                //    holder.transform.DOScale(1.5f, 0.3f).SetEase(Ease.InOutBounce).SetDelay(.3f);
-                //    holder.transform.DOScale(1, 0.3f).SetEase(Ease.InOutBounce).SetDelay(.5f);
-               // }
+              
+              
             }
             else
             {
@@ -490,7 +485,10 @@ public class LevelManager : MonoBehaviour
                 holder.StartPending();
                 Debug.Log("Full");
 
-                
+                holder.transform.DOScale(2f, 0.6f).SetEase(Ease.Linear).SetDelay(.3f);
+                holder.transform.DOScale(1.4f, 01f).SetEase(Ease.Linear).SetDelay(.5f);
+
+
                 //holder.GetComponent<BoxCollider>().isTrigger = true;
             }
         }
@@ -522,6 +520,7 @@ public class LevelManager : MonoBehaviour
         {
             var liquids = holder.Liquids.ToList();
             Debug.Log(_holders.Count);
+
             return liquids.Count == 0 || liquids.Count == 1;
         })
             &&

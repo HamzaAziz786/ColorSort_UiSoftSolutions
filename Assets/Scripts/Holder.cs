@@ -113,16 +113,16 @@ public class Holder : MonoBehaviour
         var deliverTopPosition = holder.transform.TransformPoint(5 * Vector3.up);
 
         
-        if(holder.IsFull || !_liquids.Any() || holder.Liquids.Any() && holder.Liquids.Last().GroupId != Liquids.Last().GroupId)
+        if (holder.IsFull || !_liquids.Any() || holder.Liquids.Any() && holder.Liquids.Last().GroupId != Liquids.Last().GroupId)
         {
             //LevelManager.Instance.confetti.gameObject.SetActive(true);
             //LevelManager.Instance.confetti.Play();
-         
+            
             yield break;
         }
 
         yield return MoveNearToHolderForTransfer(holder);
-        
+       
         var isRightSide = holder.transform.position.x > transform.position.x;
         var sidePoint = isRightSide ? _rightSideDeliverPoint : _leftSideDeliverPoint;
         var deliverAngle = isRightSide ? -deliverAbsAngle : deliverAbsAngle;
@@ -140,6 +140,7 @@ public class Holder : MonoBehaviour
 
         yield return SimpleCoroutine.MoveTowardsEnumerator(onCallOnFrame: n =>
         {
+           
             transform.position = Vector3.Lerp(startPoint, targetHolderPoint, n);
             transform.rotation = Quaternion.Lerp(startRotation, targetHolderRotation, n);
         }, speed: 2);
@@ -151,6 +152,7 @@ public class Holder : MonoBehaviour
         if (holder.Liquids.LastOrDefault() == null)
         {
             holder.AddLiquid(thisLiquid.GroupId);
+           
         }
 
         var targetLiquid = holder.Liquids.Last();
@@ -173,12 +175,14 @@ public class Holder : MonoBehaviour
 
         if (thisLiquid.Value <= 0.05f)
         {
+          
             _liquids.Remove(thisLiquid);
             Destroy(thisLiquid.gameObject);
         }
         else
         {
             thisLiquid.Value = Mathf.RoundToInt(thisLiquid.Value);
+           
         }
         _audio.Stop();
         _liquidLine.gameObject.SetActive(false);
@@ -186,10 +190,11 @@ public class Holder : MonoBehaviour
         onLiquidTransferComplete?.Invoke();
         yield return SimpleCoroutine.MoveTowardsEnumerator(onCallOnFrame: n =>
         {
+            
             transform.position = Vector3.Lerp(targetHolderPoint, startPoint, n);
             transform.rotation = Quaternion.Lerp(targetHolderRotation, startRotation, n);
         }, speed: 2);
-
+        
         yield return ReturnToOriginalPoint();
         IsFront = false;
 
@@ -242,7 +247,7 @@ public class Holder : MonoBehaviour
     public void MoveTo(Vector2 point, float speed = 10,Action onFinished=null)
     {
        StopMoveIfAlready();
-        
+       
         _moveCoroutine = StartCoroutine(SimpleCoroutine.CoroutineEnumerator(MoveToEnumerator(point, speed),onFinished));
     }
     
