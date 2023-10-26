@@ -66,6 +66,8 @@ public class LevelManager : MonoBehaviour
     public AudioSource Winnignsound;
     public AudioClip[] clips_win;
     public GameObject[] bottombuttons;
+    public Camera cam;
+    public List<Color> cam_col;
     private void Awake()
     {
         Instance = this;
@@ -78,8 +80,8 @@ public class LevelManager : MonoBehaviour
             PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
             PlayerPrefs.SetInt("levellock", 1);
         }
-        
-        if (PlayerPrefs.GetInt("level") <= 100)
+       
+        if (PlayerPrefs.GetInt("level") < 100)
         {
             Level = ResourceManager.GetLevel(loadGameData.GameMode, PlayerPrefs.GetInt("level"));
         }
@@ -88,7 +90,7 @@ public class LevelManager : MonoBehaviour
             int randoms = UnityEngine.Random.Range(0, 90);
             Level = ResourceManager.GetLevel(loadGameData.GameMode, randoms);
         }
-
+        
         Firebase_Analytics.Instance.LogEvent("Level_Start:" + PlayerPrefs.GetInt("level"));
         LoadLevel();
        
@@ -158,6 +160,7 @@ public class LevelManager : MonoBehaviour
         //    HolderSpriteNo = 2;
         //else
         //    HolderSpriteNo = 5 ;
+        cam.backgroundColor = cam_col[UnityEngine.Random.Range(0, cam_col.Count)];
         HolderSpriteNo = UnityEngine.Random.Range(0, holdersprites.Length);
         if (PlayerPrefs.GetInt("level")<3)
         {
