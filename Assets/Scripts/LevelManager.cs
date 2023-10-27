@@ -522,8 +522,7 @@ public class LevelManager : MonoBehaviour
             _holders.All(holder =>
         {
             var liquids = holder.Liquids.ToList();
-            Debug.Log(_holders.Count);
-
+            
             return liquids.Count == 0 || liquids.Count == 1;
         })
             &&

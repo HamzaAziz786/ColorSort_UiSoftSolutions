@@ -84,7 +84,7 @@ public class Holder : MonoBehaviour
         //   var speed = GetSpeedForDistance((transform.position - targetPoint).magnitude);
         var speed = 40f;
         StopMoveIfAlready();
-        yield return MoveToEnumerator(targetPoint,Mathf.Max(speed,3));
+        yield return MoveToEnumerator(targetPoint,Mathf.Max(speed,2));
     }
 
     private float GetSpeedForDistance(float distance)
@@ -96,7 +96,7 @@ public class Holder : MonoBehaviour
     {
         StopMoveIfAlready();
         var speed = GetSpeedForDistance((transform.position - OriginalPoint).magnitude);
-        yield return MoveToEnumerator(OriginalPoint, Mathf.Max(speed,3));
+        yield return MoveToEnumerator(OriginalPoint, Mathf.Max(speed,5));
     }
 
     private void StopMoveIfAlready()
@@ -117,7 +117,7 @@ public class Holder : MonoBehaviour
         {
             //LevelManager.Instance.confetti.gameObject.SetActive(true);
             //LevelManager.Instance.confetti.Play();
-            
+           
             yield break;
         }
 
@@ -154,7 +154,7 @@ public class Holder : MonoBehaviour
             holder.AddLiquid(thisLiquid.GroupId);
            
         }
-
+       
         var targetLiquid = holder.Liquids.Last();
         var targetLiquidStartValue = targetLiquid.Value;
 
