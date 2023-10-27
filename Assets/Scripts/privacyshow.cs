@@ -9,19 +9,20 @@ public class privacyshow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log(PlayerPrefs.GetInt("privacy"));
         if(PlayerPrefs.GetInt("privacy")==0)
         {
             privacypnl.SetActive(true);
             PlayerPrefs.SetInt("privacy", 1);
-            StartCoroutine(nameof(StartScene));
+            //StartCoroutine(nameof(StartScene));
         }
-        //else
-        //{
-            
+        else
+        {
 
+            StartCoroutine(nameof(StartScene));
 
-        //}
-        
+        }
+
     }
     IEnumerator StartScene()
     {
@@ -42,7 +43,12 @@ public class privacyshow : MonoBehaviour
         Splash.instance.loadingpanel.SetActive(false);
         SceneManager.LoadScene("Main");
     }
+    public void PolicyLinkOpen()
+    {
+        Application.OpenURL("https://sites.google.com/view/infinityinnovators/home");
+    }
+
 }
 
-    
+
 
