@@ -43,7 +43,10 @@ namespace dotmob
             else
             {
                 Splash.instance.loadingpanel.SetActive(false);
-                //SceneManager.LoadScene(sceneName);
+               
+                    SceneManager.LoadScene(sceneName);
+                
+               
             }
             //FirebaseAnaLytics.instance.StringEvent("MainMenu");
         }
@@ -52,11 +55,10 @@ namespace dotmob
         public static void LoadGame(LoadGameData data, bool showLoading = true, float loadingScreenSpeed = 1f)
         {
             LoadGameData = data;
-            //if (PlayerPrefs.GetInt("privacy") == 1)
-            //{
-            //    LoadScene("Main", showLoading, loadingScreenSpeed);
-            //}
-            
+           
+                LoadScene("Main", showLoading, loadingScreenSpeed);
+           
+
         }
 
     }

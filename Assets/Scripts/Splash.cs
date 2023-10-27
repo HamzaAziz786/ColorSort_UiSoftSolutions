@@ -37,8 +37,8 @@ public class Splash : MonoBehaviour
 
         icon.transform.DOLocalMoveY(0, 1.5f);
         loadingbar.transform.DOScaleX(1, 2)/*.OnComplete(() => loadingpanel.SetActive(false))*/;
-        if (PlayerPrefs.GetInt("FirsttimeGameOpen") >= 1)
-            StartCoroutine(nameof(StartScene));
+        //if (PlayerPrefs.GetInt("FirsttimeGameOpen") >= 1)
+        //    StartCoroutine(nameof(StartScene));
       
         
     }
