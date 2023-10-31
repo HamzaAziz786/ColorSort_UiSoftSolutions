@@ -66,8 +66,7 @@ public class LevelManager : MonoBehaviour
     public AudioSource Winnignsound;
     public AudioClip[] clips_win;
     public GameObject[] bottombuttons;
-    public Camera cam;
-    public List<Color> cam_col;
+    
     private void Awake()
     {
         Instance = this;
@@ -160,7 +159,7 @@ public class LevelManager : MonoBehaviour
         //    HolderSpriteNo = 2;
         //else
         //    HolderSpriteNo = 5 ;
-        cam.backgroundColor = cam_col[UnityEngine.Random.Range(0, cam_col.Count)];
+      
         HolderSpriteNo = UnityEngine.Random.Range(0, holdersprites.Length);
         if (PlayerPrefs.GetInt("level")<3)
         {
