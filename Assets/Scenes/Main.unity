@@ -6338,7 +6338,7 @@ MonoBehaviour:
   - {fileID: 1610503166}
 --- !u!95 &369287656
 Animator:
-  serializedVersion: 5
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -6351,12 +6351,10 @@ Animator:
   m_UpdateMode: 2
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &394344002
 GameObject:
   m_ObjectHideFlags: 0
@@ -6560,7 +6558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &417155630
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24385,15 +24383,6 @@ MonoBehaviour:
   - {fileID: 1634139613}
   - {fileID: 325907900}
   - {fileID: 1858115633}
-  cam: {fileID: 519420031}
-  cam_col:
-  - {r: 0.08627451, g: 0.19607843, b: 0.28235295, a: 1}
-  - {r: 0.36007452, g: 0.032306872, b: 0.6226415, a: 0}
-  - {r: 0.2924528, g: 0.13935137, b: 0.034487356, a: 0}
-  - {r: 0.18064265, g: 0.1747063, b: 0.24528301, a: 0}
-  - {r: 0.41509432, g: 0.16251333, b: 0.254361, a: 0}
-  - {r: 0, g: 0, b: 0, a: 0}
-  - {r: 0.6320754, g: 0.405643, b: 0.09242612, a: 0}
 --- !u!1 &1196549637
 GameObject:
   m_ObjectHideFlags: 0
