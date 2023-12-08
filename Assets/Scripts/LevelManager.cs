@@ -72,7 +72,8 @@ public class LevelManager : MonoBehaviour
         Instance = this;
         var loadGameData = GameManager.LoadGameData;
         GameMode = loadGameData.GameMode;
-       // CurrentBackground.sprite = BakcgroundsSprites[StoreScript.selectwallPapernumber];
+        int randomylsprite = UnityEngine.Random.Range(0, BakcgroundsSprites.Length);
+        CurrentBackground.sprite = BakcgroundsSprites[randomylsprite];
         //Level = loadGameData.Level;
         if (PlayerPrefs.GetInt("levellock") == 0)
         {

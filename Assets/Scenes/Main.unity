@@ -24432,17 +24432,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b49ccf9db2da1d746a8ce57d47526299, type: 3}
   - {fileID: 21300000, guid: 10c59d565e9590949814ee0a4e39dd0e, type: 3}
   - {fileID: 21300000, guid: 125f8244b4c93f94981287e8e8fce999, type: 3}
-  CurrentBackground: {fileID: 0}
+  CurrentBackground: {fileID: 1413669822}
   BakcgroundsSprites:
-  - {fileID: 21300000, guid: 829d1d33baf7c5e4abab1e1c8a24aa76, type: 3}
-  - {fileID: 21300000, guid: 1210739ec9495674698946bedbd95ea6, type: 3}
-  - {fileID: 21300000, guid: c282b4f6c3aa9cf4ba041fd66e3e123f, type: 3}
-  - {fileID: 21300000, guid: 0a4575fd784f3014e85f0296973fb0e0, type: 3}
-  - {fileID: 21300000, guid: fe76837197afbf34eb8620668deb9786, type: 3}
-  - {fileID: 21300000, guid: 1b394543c79bb3d4ab34bae82dcdb730, type: 3}
-  - {fileID: 21300000, guid: 660813531aff4a04783ab75b3ee7d06e, type: 3}
-  - {fileID: 21300000, guid: 9e97d0ae38373b347b8876d57db4289c, type: 3}
-  - {fileID: 21300000, guid: 671c8ac173bc2ed44acadb2493480302, type: 3}
+  - {fileID: 21300000, guid: 7ac5d53b88f9a714597dbf654662f06d, type: 3}
+  - {fileID: 21300000, guid: 9df1d78dcf0887d44ae40a81a00ee3ec, type: 3}
+  - {fileID: 21300000, guid: 25f940c7637652b4d9a848fcc71a6939, type: 3}
+  - {fileID: 21300000, guid: c0b116469bd6e5c4a8e0d05ec40e62b9, type: 3}
+  - {fileID: 21300000, guid: c6893cabeb044b44cbba97e814b1447a, type: 3}
+  - {fileID: 21300000, guid: 4cf84289888825e4d87ae0072316114d, type: 3}
+  - {fileID: 21300000, guid: 94ac8b620af66b444a4567ec66a40dd0, type: 3}
+  - {fileID: 21300000, guid: cba67f4b2e71e9540ab1f3f19a3fe07b, type: 3}
+  - {fileID: 21300000, guid: 594006e2e8af312449dc13a324b39687, type: 3}
+  - {fileID: 21300000, guid: 07e066ea3b594724083e64a3b0479f79, type: 3}
+  - {fileID: 21300000, guid: d6700273c6c7a454694a589fb7f75fd4, type: 3}
+  - {fileID: 21300000, guid: f99f93d6a02e34e459d7fb894284ba54, type: 3}
   RewardPanel: {fileID: 369287651}
   HintVideoIcon: {fileID: 1556310384}
   RestartVideoIcon: {fileID: 1187223110}
