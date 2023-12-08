@@ -33479,7 +33479,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   privacypnl: {fileID: 1462107340103175393}
-  menupnl: {fileID: 7748482078961053872}
 --- !u!1 &1152981851
 GameObject:
   m_ObjectHideFlags: 0
