@@ -73,7 +73,7 @@ public class LevelManager : MonoBehaviour
         var loadGameData = GameManager.LoadGameData;
         GameMode = loadGameData.GameMode;
         int randomylsprite = UnityEngine.Random.Range(0, BakcgroundsSprites.Length);
-        CurrentBackground.sprite = BakcgroundsSprites[randomylsprite];
+       // CurrentBackground.sprite = BakcgroundsSprites[randomylsprite];
         //Level = loadGameData.Level;
         if (PlayerPrefs.GetInt("levellock") == 0)
         {
@@ -160,8 +160,9 @@ public class LevelManager : MonoBehaviour
         //    HolderSpriteNo = 2;
         //else
         //    HolderSpriteNo = 5 ;
-      
-        HolderSpriteNo = UnityEngine.Random.Range(0, holdersprites.Length);
+
+        //HolderSpriteNo = UnityEngine.Random.Range(0, holdersprites.Length);
+        HolderSpriteNo = 9;
         if (PlayerPrefs.GetInt("level")<3)
         {
             foreach (var item in bottombuttons)
