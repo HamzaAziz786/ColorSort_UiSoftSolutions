@@ -14,8 +14,8 @@ namespace Game
         //[SerializeField] private TutorialPanel _tutorialPanel;
         [SerializeField] private GameObject _winEffect;
         public ParticleSystem C1, C2,top;
-       
 
+        public GameObject GamePlay_Panel;
         //public static bool IsFirstTime
         //{
         //    get => PrefManager.GetBool(nameof(IsFirstTime), true);
@@ -59,12 +59,15 @@ namespace Game
             top.Play();
             
             C2.Play();
+            GamePlay_Panel.SetActive(false);
             _levelCompletePanel.Show();
+
         }
 
 
         public void LoadNextLevel()
         {
+            GamePlay_Panel.SetActive(true);
             var gameMode = LevelManager.Instance.GameMode;
             var levelNo = LevelManager.Instance.Level.no;
             //if (!ResourceManager.HasLevel(gameMode, levelNo + 1))

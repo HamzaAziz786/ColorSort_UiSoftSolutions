@@ -6093,7 +6093,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.421577, y: 0.037685197}
   m_AnchorMax: {x: 0.586186, y: 0.13027778}
-  m_AnchoredPosition: {x: 0, y: -472.00027}
+  m_AnchoredPosition: {x: 0, y: -472.00024}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325907902
@@ -13785,6 +13785,7 @@ MonoBehaviour:
   C1: {fileID: 1320865638}
   C2: {fileID: 1320865638}
   top: {fileID: 1320865638}
+  GamePlay_Panel: {fileID: 923333113}
 --- !u!1 &1054217944
 GameObject:
   m_ObjectHideFlags: 0
@@ -23998,7 +23999,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 8b66e1f07240c8b4694ac6d98ad59dfa, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 89c780e56cbc0b847ae4072a6e13e92d, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.285
   m_Pitch: 1
@@ -24570,16 +24571,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1320865635}
-  m_LocalRotation: {x: 0.63762313, y: 0.2098683, z: -0.009531181, w: 0.74114865}
-  m_LocalPosition: {x: 0, y: 0, z: -26}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: 0.6593778, y: 0.12581275, z: -0.10511382, w: 0.7337187}
+  m_LocalPosition: {x: 0, y: 0, z: -47.1}
+  m_LocalScale: {x: 0.10254001, y: 0.10254001, z: 0.10254001}
   m_Children: []
   m_Father: {fileID: 820047336}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 71.649, y: 71.714, z: 53.631}
+  m_LocalEulerAnglesHint: {x: 83.744, y: 24.971, z: 6.147}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -228, y: 13}
+  m_AnchoredPosition: {x: -166.1, y: 13.8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!199 &1320865637
@@ -24784,7 +24785,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 13
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -24836,7 +24837,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
@@ -24850,7 +24851,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 10409
+        ctime1: 65535
         ctime2: 10409
         ctime3: 0
         ctime4: 0
@@ -24870,7 +24871,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
-        key0: {r: 0.9150943, g: 0.4834855, b: 0.12517802, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 1}
         key1: {r: 0.8962264, g: 0.080322154, b: 0.080322154, a: 1}
         key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -26096,7 +26097,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 5936356172364887011, guid: 72bc294e69085b44894a78cc5cc46ac8, type: 3}
+    - sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -30282,16 +30283,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610503163}
-  m_LocalRotation: {x: 0.6034376, y: -0.029553855, z: -0.20619754, w: 0.7697221}
-  m_LocalPosition: {x: 0, y: 0, z: -14}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalRotation: {x: 0.6593778, y: 0.12581275, z: -0.10511382, w: 0.7337187}
+  m_LocalPosition: {x: 0, y: 0, z: -144.5}
+  m_LocalScale: {x: 0.10254001, y: 0.10254001, z: 0.10254001}
   m_Children: []
   m_Father: {fileID: 820047336}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 113.54199, y: -227.47299, z: 117.867004}
+  m_LocalEulerAnglesHint: {x: 83.744, y: 24.971, z: 6.147}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 224, y: -29}
+  m_AnchoredPosition: {x: 119, y: 17.3}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!199 &1610503165
@@ -30496,7 +30497,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 13
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -30548,7 +30549,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startColor:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
       maxColor: {r: 1, g: 1, b: 1, a: 1}
       maxGradient:
@@ -30562,7 +30563,7 @@ ParticleSystem:
         key6: {r: 0, g: 0, b: 0, a: 0}
         key7: {r: 0, g: 0, b: 0, a: 0}
         ctime0: 0
-        ctime1: 10409
+        ctime1: 65535
         ctime2: 10409
         ctime3: 0
         ctime4: 0
@@ -30582,7 +30583,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
       minGradient:
         serializedVersion: 2
-        key0: {r: 0.9150943, g: 0.4834855, b: 0.12517802, a: 1}
+        key0: {r: 1, g: 1, b: 1, a: 1}
         key1: {r: 0.8962264, g: 0.080322154, b: 0.080322154, a: 1}
         key2: {r: 1, g: 1, b: 1, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
@@ -31808,7 +31809,7 @@ ParticleSystem:
     uvChannelMask: -1
     rowMode: 1
     sprites:
-    - sprite: {fileID: 5936356172364887011, guid: 72bc294e69085b44894a78cc5cc46ac8, type: 3}
+    - sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     flipU: 0
     flipV: 0
   VelocityModule:
@@ -35103,7 +35104,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.102729276, y: 0.037685197}
   m_AnchorMax: {x: 0.26733825, y: 0.13027778}
-  m_AnchoredPosition: {x: -812.0001, y: 0}
+  m_AnchoredPosition: {x: -812.0002, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1634139615

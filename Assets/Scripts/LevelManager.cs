@@ -480,8 +480,7 @@ public class LevelManager : MonoBehaviour
                 }));
                 holder.transform.DOScale(1.6f, 0.6f).SetEase(Ease.Linear).SetDelay(.3f);
                 holder.transform.DOScale(1.4f, 01f).SetEase(Ease.Linear).SetDelay(.8f);
-              
-              
+               
             }
             else
             {

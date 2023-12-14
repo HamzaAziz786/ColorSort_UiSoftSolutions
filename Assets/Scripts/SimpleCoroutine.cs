@@ -27,6 +27,7 @@ public class SimpleCoroutine : MonoBehaviour
         {
             DestroyImmediate(this);
         }
+        
     }
 
 
