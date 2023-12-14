@@ -24612,7 +24612,7 @@ RectTransform:
   m_GameObject: {fileID: 1241039977}
   m_LocalRotation: {x: 0.6593778, y: 0.12581275, z: -0.10511382, w: 0.7337187}
   m_LocalPosition: {x: 0, y: 0, z: -144.5}
-  m_LocalScale: {x: 0.10254001, y: 0.10254001, z: 0.10254001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 818953594}
   m_RootOrder: 2
@@ -24771,7 +24771,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -24824,7 +24824,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 13
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -24940,7 +24940,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -24993,7 +24993,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -25046,7 +25046,7 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -25257,7 +25257,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    size3D: 0
+    size3D: 1
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
@@ -29421,7 +29421,7 @@ RectTransform:
   m_GameObject: {fileID: 1320865635}
   m_LocalRotation: {x: 0.6593778, y: 0.12581275, z: -0.10511382, w: 0.7337187}
   m_LocalPosition: {x: 0, y: 0, z: -47.1}
-  m_LocalScale: {x: 0.10254001, y: 0.10254001, z: 0.10254001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 820047336}
   m_RootOrder: 0
@@ -29580,7 +29580,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -29749,7 +29749,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -29802,7 +29802,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -29855,7 +29855,7 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -30066,7 +30066,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    size3D: 0
+    size3D: 1
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
@@ -35133,7 +35133,7 @@ RectTransform:
   m_GameObject: {fileID: 1610503163}
   m_LocalRotation: {x: 0.6593778, y: 0.12581275, z: -0.10511382, w: 0.7337187}
   m_LocalPosition: {x: 0, y: 0, z: -144.5}
-  m_LocalScale: {x: 0.10254001, y: 0.10254001, z: 0.10254001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 820047336}
   m_RootOrder: 2
@@ -35292,7 +35292,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -35461,7 +35461,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -35514,7 +35514,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -35567,7 +35567,7 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -35778,7 +35778,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    size3D: 0
+    size3D: 1
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
@@ -46754,7 +46754,7 @@ RectTransform:
   m_GameObject: {fileID: 2117398835}
   m_LocalRotation: {x: 0.6593778, y: 0.12581275, z: -0.10511382, w: 0.7337187}
   m_LocalPosition: {x: 0, y: 0, z: -47.1}
-  m_LocalScale: {x: 0.10254001, y: 0.10254001, z: 0.10254001}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 818953594}
   m_RootOrder: 0
@@ -46913,7 +46913,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -46966,7 +46966,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 13
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -47082,7 +47082,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.46
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -47135,7 +47135,7 @@ ParticleSystem:
     startSizeY:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -47188,7 +47188,7 @@ ParticleSystem:
     startSizeZ:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 0.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -47399,7 +47399,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     maxNumParticles: 1000
-    size3D: 0
+    size3D: 1
     rotation3D: 0
     gravityModifier:
       serializedVersion: 2
