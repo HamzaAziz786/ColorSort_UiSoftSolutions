@@ -448,6 +448,7 @@ public class LevelManager : MonoBehaviour
                 if (holder != null)
 
                     OnClickHolder(holder);
+               
                 //Debug.Log("its clicked");
             }
         }
@@ -498,10 +499,14 @@ public class LevelManager : MonoBehaviour
         else if (holder.Liquids.Any())
         {
             if (!holder.IsPending)
+            {
                 holder.StartPending();
+               
+            }
+                
             else
             {
-
+                
                 holder.ClearPending();
 
             }

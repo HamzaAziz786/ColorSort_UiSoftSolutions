@@ -65,6 +65,7 @@ public class Holder : MonoBehaviour
         IsFront = true;
         MoveTo(PendingPoint,speed:5);
         PlayClipIfCan(_popClip);
+       
     }
 
     public void ClearPending()
@@ -111,16 +112,15 @@ public class Holder : MonoBehaviour
         
         var deliverAbsAngle = 100;
         var deliverTopPosition = holder.transform.TransformPoint(5 * Vector3.up);
-
-        
+       
         if (holder.IsFull || !_liquids.Any() || holder.Liquids.Any() && holder.Liquids.Last().GroupId != Liquids.Last().GroupId)
         {
             //LevelManager.Instance.confetti.gameObject.SetActive(true);
             //LevelManager.Instance.confetti.Play();
-           
+            
             yield break;
         }
-
+       
         yield return MoveNearToHolderForTransfer(holder);
        
         var isRightSide = holder.transform.position.x > transform.position.x;
@@ -147,8 +147,7 @@ public class Holder : MonoBehaviour
 
         var thisLiquidStartValue = thisLiquid.Value;
         var transferValue = Mathf.Min(thisLiquid.Value,holder.MAXValue - holder.CurrentTotal);
-        
-        
+       
         if (holder.Liquids.LastOrDefault() == null)
         {
             holder.AddLiquid(thisLiquid.GroupId);
@@ -205,7 +204,7 @@ public class Holder : MonoBehaviour
     {
         var topPoint = GetTopPoint();
         var liquid = Instantiate(_liquidPrefab,_content);
-
+        
         liquid.IsBottomLiquid = !Liquids.Any();
         
         liquid.GroupId = groupId;
@@ -214,6 +213,8 @@ public class Holder : MonoBehaviour
         
         liquid.Value = value;
         _liquids.Add(liquid);
+       
+
     }
 
     public Vector2 GetTopPoint()
@@ -259,7 +260,7 @@ public class Holder : MonoBehaviour
         {
             transform.position = Vector3.Lerp(startPoint, toPoint, n);
         },speed:speed);
-
+       
     }
 
 }
