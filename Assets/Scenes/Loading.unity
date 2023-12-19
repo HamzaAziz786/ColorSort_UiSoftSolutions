@@ -1904,7 +1904,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69173fbf8cfd1ad49abefdd28724c181, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  testMode: 0
+  testMode: 1
   admobController: {fileID: 756762534}
   isAdInitialized: 0
   unityAdsID: 
