@@ -13487,7 +13487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 576da1da0256e4e469ce99a052815373, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aed21a6487cf4754db2012dbe2dbb1ff, type: 3}
   m_Type: 0
   m_PreserveAspect: 1
   m_FillCenter: 1
@@ -24463,7 +24463,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 1be5eed55d840694f8b521ba11c2e3fe, type: 3}
   - {fileID: 21300000, guid: e883ab2eaa9d1fe43a8436ee07a314c9, type: 3}
   - {fileID: 21300000, guid: eaf07c8bee09e08408c71c8979933ab1, type: 3}
-  - {fileID: 21300000, guid: 779854ff1fd0fc14abc7a6171f7ca6e7, type: 3}
+  - {fileID: 21300000, guid: 3367aae0a760c384684e46120614ee23, type: 3}
+  - {fileID: 21300000, guid: dc43823c434599a49bfa876fa62b3858, type: 3}
   contetnsprites:
   - {fileID: 21300000, guid: f9af167dc34ca154f8b44438e26c9517, type: 3}
   - {fileID: 21300000, guid: fdfef5eb3188ebe4898f092a33bfde0e, type: 3}
@@ -24474,7 +24475,8 @@ MonoBehaviour:
   - {fileID: 21300000, guid: b49ccf9db2da1d746a8ce57d47526299, type: 3}
   - {fileID: 21300000, guid: 10c59d565e9590949814ee0a4e39dd0e, type: 3}
   - {fileID: 21300000, guid: 125f8244b4c93f94981287e8e8fce999, type: 3}
-  - {fileID: 21300000, guid: 326fc401e1d87894abb1c20eb6fa5ad2, type: 3}
+  - {fileID: 21300000, guid: 048c87333c1b99c4984284978b237405, type: 3}
+  - {fileID: 21300000, guid: eea610e2147e33c4ea06da1f6f1480f0, type: 3}
   CurrentBackground: {fileID: 1413669822}
   BakcgroundsSprites:
   - {fileID: 21300000, guid: 7ac5d53b88f9a714597dbf654662f06d, type: 3}
@@ -24507,6 +24509,7 @@ MonoBehaviour:
   - {fileID: 1634139613}
   - {fileID: 325907900}
   - {fileID: 1858115633}
+  GamePlay_Panel: {fileID: 923333113}
 --- !u!1 &1196549637
 GameObject:
   m_ObjectHideFlags: 0
@@ -29634,7 +29637,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -35346,7 +35349,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 7
       minScalar: 5
       maxCurve:
         serializedVersion: 2

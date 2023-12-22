@@ -66,7 +66,7 @@ public class LevelManager : MonoBehaviour
     public AudioSource Winnignsound;
     public AudioClip[] clips_win;
     public GameObject[] bottombuttons;
-    
+    public GameObject GamePlay_Panel;
     private void Awake()
     {
         Instance = this;
@@ -105,7 +105,7 @@ public class LevelManager : MonoBehaviour
     private void Start()
     {
         // MyAdmobAds_Manager.Instance.ShowSmallAdmobBanner();
-
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         AdsController.instance.ShowAd(AdType.BANNER, 0);
         GamePlayLevelNumber.text = "Level : "+PlayerPrefs.GetInt("level").ToString();
         //AddTube = PlayerPrefs.GetInt("Tube");
@@ -161,8 +161,8 @@ public class LevelManager : MonoBehaviour
         //else
         //    HolderSpriteNo = 5 ;
 
-        //HolderSpriteNo = UnityEngine.Random.Range(0, holdersprites.Length);
-        HolderSpriteNo = 9;
+        HolderSpriteNo = UnityEngine.Random.Range(0, holdersprites.Length);
+        //HolderSpriteNo = 9;
         if (PlayerPrefs.GetInt("level")<3)
         {
             foreach (var item in bottombuttons)
@@ -564,6 +564,7 @@ public class LevelManager : MonoBehaviour
         RewardPanel.SetActive(true);
         ResourceManager.CompleteLevel(GameMode, Level.no);
         Firebase_Analytics.Instance.LogEvent("Level_Complete:" + PlayerPrefs.GetInt("level"));
+        GamePlay_Panel.SetActive(false);
         LevelCompleted?.Invoke();
     }
     IEnumerator RewardSounds()

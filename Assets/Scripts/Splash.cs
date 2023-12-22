@@ -23,6 +23,7 @@ public class Splash : MonoBehaviour
     }
     private void Start()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Firebase_Analytics.Instance.LogEvent("Splash_Screen");
 
         if (PlayerPrefs.GetInt("FirsttimeGameOpen") < 1)
