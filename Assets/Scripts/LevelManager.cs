@@ -393,7 +393,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
-            PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
+           // PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
             PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") - 1);
             undotext.text = PlayerPrefs.GetInt("Undo").ToString();
             SceneManager.LoadScene(1);
@@ -415,7 +415,7 @@ public class LevelManager : MonoBehaviour
     }
     public void Reward()
     {
-        PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
+        //PlayerPrefs.SetInt("level", PlayerPrefs.GetInt("level") + 1);
         PlayerPrefs.SetInt("Undo", PlayerPrefs.GetInt("Undo") + 1);
 
         SceneManager.LoadScene(1);

@@ -1870,7 +1870,6 @@ GameObject:
   - component: {fileID: 756762532}
   - component: {fileID: 756762534}
   - component: {fileID: 756762533}
-  - component: {fileID: 756762535}
   m_Layer: 0
   m_Name: Ads
   m_TagString: Untagged
@@ -1940,18 +1939,6 @@ MonoBehaviour:
   bannerAdPosition: 0000000001000000
   selectedAdPosition_Banner: 0
   AdBreak: {fileID: 2125260590}
---- !u!114 &756762535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 756762531}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fdc699b47311fb4ebdc48424e98056f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &809154009
 GameObject:
   m_ObjectHideFlags: 0
